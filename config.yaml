@@ -2,7 +2,7 @@
 # https://stack.jimmycai.com/guide/
 # https://github.com/CaiJimmy/hugo-theme-stack/blob/master/exampleSite/hugo.yaml
 
-baseURL: "${HUGO_BASEURL}"
+baseURL: "https://migration.penli.quest/"
 languageCode: zh-tw
 theme: hugo-theme-stack-original
 paginate: 7
@@ -217,3 +217,7 @@ markup:
         lineNos: false
         lineNumbersInTable: true
         tabWidth: 4
+
+caches:
+  images:
+    dir: :cacheDir/images
