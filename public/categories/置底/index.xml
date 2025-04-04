@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>📌置底 on 企鵝窩</title>
+        <link>https://li.penli.quest/categories/%E7%BD%AE%E5%BA%95/</link>
+        <description>Recent content in 📌置底 on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Tue, 02 Apr 2024 09:25:58 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/%E7%BD%AE%E5%BA%95/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo Stack 主題 -- 我的 Shortcode</title>
+        <link>https://li.penli.quest/p/my-shortcode/</link>
+        <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/my-shortcode/</guid>
+        <description>&lt;h2 id=&#34;-文字對齊&#34;&gt;📏 文字對齊&lt;/h2&gt;
+&lt;center&gt; &amp;lt;center&amp;gt; 置中了吧 &amp;lt;/center&amp;gt; &lt;/center&gt;
+&lt;center&gt; 置中了吧 &lt;/center&gt;
+&lt;p align=&#34;left&#34;&gt; &amp;lt;p align=&#34;left&#34;&amp;gt; 靠左了吧 &amp;lt;/p&amp;gt; &lt;br&gt; 靠左了吧 &lt;/p&gt;
+&lt;p align=&#34;right&#34;&gt; &amp;lt;p align=&#34;right&#34;&amp;gt; 靠右了吧 &amp;lt;/p&amp;gt; &lt;br&gt; 靠右了吧 &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-文字顏色&#34;&gt;🎨 文字顏色&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;font color=#FF0000&amp;gt; 紅色的文字 &amp;lt;/font&amp;gt;&lt;/code&gt;&lt;br&gt;
+&lt;font color=#FF0000&gt; 紅色的文字 &lt;/font&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-html-跳脫字元&#34;&gt;🌀 html 跳脫字元&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字元&lt;/th&gt;
+&lt;th&gt;編碼&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;#123;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;}&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;大空格&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小空格&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.freeformatter.com/html-entities.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;html 字元
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-書籤連結&#34;&gt;🔖 書籤連結&lt;/h2&gt;
+&lt;p&gt;手機端會太擁擠，所以我讓圖片在手機端隱藏，img的地方加上&lt;code&gt;class=&amp;quot;hide-on-mobile&amp;quot;&lt;/code&gt;，&lt;code&gt;class=&amp;quot;hide-on-mobile&amp;quot;&lt;/code&gt; 寫在 style 裡面&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;md 引入格式：&amp;ensp; &amp;#123;&amp;#123;&amp;lt;link-card name=&#34;&#34; desc=&#34;&#34; link=&#34;&#34; img=&#34;&#34;&amp;gt;&amp;#125;&amp;#125;&lt;/div&gt;  
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;shortcode html 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;樣式 scss 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-書籤連結&#34;&gt;效果 (書籤連結)&lt;/h3&gt;
+&lt;p&gt;&amp;ldquo;shortcode html&amp;rdquo; 連結做成書籤：&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;link-card.html&lt;/n&gt;
+        &lt;p&gt;⋙ shortcode html&lt;/p&gt;
+        &lt;u&gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&lt;/u&gt;
+    &lt;/div&gt;
+    
+        &lt;img src=&#34;http://ncloud.penli.quest/s/img/download/img.png&#34; alt=&#34;link-card.html&#34; class=&#34;hide-on-mobile&#34;&gt;
+    
+&lt;/a&gt;
+
+&lt;p&gt;&amp;ldquo;樣式 scss&amp;rdquo; 連結做成書籤：&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;link-card-var.scss&lt;/n&gt;
+        &lt;p&gt;⋙ 樣式 scss&lt;/p&gt;
+        &lt;u&gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&lt;/u&gt;
+    &lt;/div&gt;
+    
+        &lt;img src=&#34;http://ncloud.penli.quest/s/img/download/img.png&#34; alt=&#34;link-card-var.scss&#34; class=&#34;hide-on-mobile&#34;&gt;
+    
+&lt;/a&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;-gist-嵌入加上標題&#34;&gt;👩🏻‍💻 gist 嵌入加上標題&lt;/h2&gt;
+&lt;p&gt;原始的 gist 嵌入的樣式不喜歡，還有最底下那條 &amp;ldquo;hosted with ❤️ by GitHub&amp;rdquo;，我是選擇用自己的樣式保留著，畢竟是 github 的服務，直接刪掉總感覺不太恰當&lt;/p&gt;
+&lt;p&gt;再用一個方框加上標題，可以自訂和gist檔案名稱不同的標題，標題也可以連結到gist的頁面&lt;/p&gt;
+&lt;p&gt;penyt 是我的 github 帳號，你要換成自己的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;md 引入格式：&amp;ensp; &amp;#123;&amp;#123;&amp;lt;gist-title &#34;title&#34; penyt ID (檔名)&amp;gt;&amp;#125;&amp;#125;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;shortcode html 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;樣式 scss 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-gist-標題&#34;&gt;效果 (gist 標題)&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa&#34; target=&#34;_blank&#34;&gt; gist-title.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist-title.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa&#34; target=&#34;_blank&#34;&gt; gist.scss &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist.scss&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;文章加密&#34;&gt;🔐文章加密&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;shortcode html：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;樣式 scss：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-文章加密&#34;&gt;效果 (文章加密)&lt;/h3&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

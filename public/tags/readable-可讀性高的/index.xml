@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>readable 可讀性高的 on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/</link>
+        <description>Recent content in readable 可讀性高的 on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Tue, 19 Mar 2024 08:52:50 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>docker ps 格式</title>
+        <link>https://li.penli.quest/p/docker-ps/</link>
+        <pubDate>Tue, 19 Mar 2024 08:52:50 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/docker-ps/</guid>
+        <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; 指令的輸出格式會很容易超出螢幕，不好閱讀 (這大家應該都知道不需要展示圖片了吧ㄎ)&lt;/p&gt;
+&lt;h2 id=&#34;官方文件&#34;&gt;官方文件&lt;/h2&gt;
+&lt;p&gt;docker有給出 &lt;code&gt;--format&lt;/code&gt; 的 &lt;a class=&#34;link&#34; href=&#34;https://docs.docker.com/config/formatting/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官方文件
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;自訂命令&#34;&gt;自訂命令&lt;/h2&gt;
+&lt;p&gt;這是我自己使用的調整格式後的docker ps命令&lt;br&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/7f5365b3be2baf76835bf6831d116b9c&#34; target=&#34;_blank&#34;&gt; command &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/7f5365b3be2baf76835bf6831d116b9c.js?file=dockerps.sh&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;&lt;/p&gt;
+&lt;h2 id=&#34;輸出結果&#34;&gt;輸出結果&lt;/h2&gt;
+&lt;p&gt;輸出結果是這樣的：&lt;br&gt;
+&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;https://myrr.penli.quest/docker-ps-img%2Fdockerps.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;輸出結果&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;br&gt;
+明顯好閱讀很多很多很多&lt;/p&gt;
+&lt;h2 id=&#34;windterm快捷我個人沒有再使用了&#34;&gt;Windterm快捷（我個人沒有再使用了）&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我個人從去年後半開始便沒有再使用 windterm 了，原因不外乎 windterm 一直以來未完全開源的問題，我現在就是完全使用 vscode 和終端機了&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;這邊我使用windterm快捷命令可以直接這樣輸入到快捷命令的Text:框框，也供大家參考：
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/7f5365b3be2baf76835bf6831d116b9c&#34; target=&#34;_blank&#34;&gt; windterm shortcut &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/7f5365b3be2baf76835bf6831d116b9c.js?file=dockerpswt.sh&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+如果空格在命令中無法使用，可以改成  \t  用跳脫字元，但我用GCP網頁的SSH叫都沒問題空格應該是可以使用的  
+&lt;p&gt;大概就這樣&lt;/p&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

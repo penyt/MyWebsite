@@ -1,0 +1,31 @@
+<style>
+    /* Overwrite CSS variable */
+    :root {
+        --article-font-family: "Noto Sans Traditional Chinese", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+<!--添加umami的script-->
+<script defer src="https://umami.penli.quest/script.js" data-website-id="2f0ed1d6-56ff-4a08-8c53-0545504d81b4"></script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PYV5BRF9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6PYV5BRF9Z');
+</script>

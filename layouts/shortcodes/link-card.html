@@ -1,0 +1,73 @@
+{{ $name := .Get "name" }}
+{{ $desc := .Get "desc" }}
+{{ $link := .Get "link" }}
+{{ $img := .Get "img" }}
+
+<!-- 格式:   link-card name="" desc="" link="" img=""    -->
+
+<style>
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1; /* Allow content to expand to fill the space */
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto; /* Move the image to the right */
+        margin-right: 10px; /* Add space between image and text */
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+</style>
+
+<a href="{{ $link }}" class="card-container" target="_blank">
+    <div class="card-content">
+        <n>{{ $name }}</n>
+        <p>⋙ {{ $desc }}</p>
+        <u>{{ $link }}</u>
+    </div>
+    {{ if ne $img "" }}
+        <img src="{{ $img }}" alt="{{ $name }}" class="hide-on-mobile">
+    {{ end }}
+</a>

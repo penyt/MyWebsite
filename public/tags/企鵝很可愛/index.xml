@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>企鵝很可愛 on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/%E4%BC%81%E9%B5%9D%E5%BE%88%E5%8F%AF%E6%84%9B/</link>
+        <description>Recent content in 企鵝很可愛 on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E4%BC%81%E9%B5%9D%E5%BE%88%E5%8F%AF%E6%84%9B/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>小企的大天地</title>
+        <link>https://li.penli.quest/p/big-sky-ground/</link>
+        <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/big-sky-ground/</guid>
+        <description>&lt;img src="https://li.penli.quest/p/big-sky-ground/cover.jpg" alt="Featured image of post 小企的大天地" /&gt;&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+&lt;p&gt;🐧&lt;br&gt;
+企鵝有一對翅膀&lt;br&gt;
+企鵝不會飛&lt;br&gt;
+企鵝會吃魚&lt;br&gt;
+企鵝世界最可愛&lt;/p&gt;
+&lt;h2 id=&#34;引用&#34;&gt;引用&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有沒有一種可能，企鵝其實會飛 &amp;mdash;penli&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;https://li.penli.quest/penguin.jpeg&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;測試圖片&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在這邊試一些酷功能&lt;/p&gt;
+
+
+
+
+
+
+
+
+&lt;div id=&#34;password-box&#34; class=&#34;password-box&#34;&gt;
+    &lt;input type=&#34;password&#34; id=&#34;password&#34; class=&#34;password-input&#34; placeholder=&#34;小企密碼&#34;&gt;
+    &lt;button id=&#34;submit&#34; class=&#34;submit-button&#34;&gt;送出&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;div id=&#34;inner-content&#34; style=&#34;display: none;&#34;&gt;
+  &lt;blockquote&gt;
+&lt;p&gt;小企🐧偷偷隱藏了一隻魚魚🐟，要拿給小狐🦊吃&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/84488c7c8f12a0ff7d07c101e0e4c422&#34; target=&#34;_blank&#34;&gt; fish &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/84488c7c8f12a0ff7d07c101e0e4c422.js&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+&lt;/div&gt;
+
+&lt;script&gt;
+document.getElementById(&#34;submit&#34;).addEventListener(&#34;click&#34;, function() {
+    var userInput = document.getElementById(&#34;password&#34;).value;
+    if (userInput === &#34;0302&#34;) {
+        
+        document.getElementById(&#34;password-box&#34;).style.display = &#34;none&#34;;
+        document.getElementById(&#34;inner-content&#34;).style.display = &#34;block&#34;;
+    } else {
+        
+        document.getElementById(&#34;password&#34;).value = &#34;&#34;; 
+        document.getElementById(&#34;password&#34;).setAttribute(&#34;placeholder&#34;, &#34;error 88&#34;);
+    }
+});
+&lt;/script&gt;
+
+&lt;style&gt;
+.password-box {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.password-input {
+    width: calc(100% - 100px);
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent;
+}
+.submit-button {
+    padding: 8px 15px;
+    background-color: #afafaf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #6a6a6a;
+}
+&lt;/style&gt;
+
+</description>
+        </item>
+        
+    </channel>
+</rss>

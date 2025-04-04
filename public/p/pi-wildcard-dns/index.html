@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='pihole local DNS'>
+<title>Pihole 設置 Wildcard Dns</title>
+
+<link rel='canonical' href='https://li.penli.quest/p/pi-wildcard-dns/'>
+
+<link rel="stylesheet" href="/scss/style.min.1a7af78c150fa8d788e11473c17cc4ce25f14f33cc32e62debcc18c436655df3.css"><meta property='og:title' content='Pihole 設置 Wildcard Dns'>
+<meta property='og:description' content='pihole local DNS'>
+<meta property='og:url' content='https://li.penli.quest/p/pi-wildcard-dns/'>
+<meta property='og:site_name' content='企鵝窩'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pihole' /><meta property='article:tag' content='dns 加油' /><meta property='article:published_time' content='2024-07-07T15:30:40&#43;00:00'/><meta property='article:modified_time' content='2024-07-07T15:30:40&#43;00:00'/>
+<meta name="twitter:title" content="Pihole 設置 Wildcard Dns">
+<meta name="twitter:description" content="pihole local DNS">
+    <link rel="shortcut icon" href="https://myrr.penli.quest/favicon.ico" />
+<style>
+     
+    :root {
+        --article-font-family: "Noto Sans Traditional Chinese", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+
+<script defer src="https://umami.penli.quest/script.js" data-website-id="2f0ed1d6-56ff-4a08-8c53-0545504d81b4"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PYV5BRF9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6PYV5BRF9Z');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+
+        
+        <a class="back" href="javascript:scroll(0,0)"></a>
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <button type="button" id="left-menu" aria-label="切換選單">
+            <span>
+                <span>選 單 sidebar</span>
+            </span>
+        </button>
+        <ol class="menu" id="lmenu">
+            
+            
+                
+                <li >
+                    <a href='/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                        
+                        <span>首頁</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/about/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                        
+                        <span>關於我</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/archives/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                        
+                        <span>所有文章</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/search/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                        
+                        <span>搜尋</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/donate-and-links/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                        <span>連結</span>
+                    </a>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>夜晚模式</span>
+                </li>
+            
+
+        </ol>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#介紹-wildcard-dns">介紹 Wildcard DNS</a></li>
+    <li><a href="#pihole-ui-設置出現錯誤">PiHole UI 設置出現錯誤</a></li>
+    <li><a href="#更改-pihole-配置文件">更改 PiHole 配置文件</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/dns/" style="background-color: #FF8040; color: #fff;">
+                DNS
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/pi-wildcard-dns/">Pihole 設置 Wildcard Dns</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            pihole local DNS
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jul 07, 2024</time>
+            </div>
+        
+
+        
+              
+              
+              
+            
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    
+                    閱讀時間：5 分鐘
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+
+
+<section class="toc toc--inline">
+    <p class="toc--title">目錄</p>
+    <p class="toc--desc"> inline table of content only on mobile</p>
+    <div class="">
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#介紹-wildcard-dns">介紹 Wildcard DNS</a></li>
+    <li><a href="#pihole-ui-設置出現錯誤">PiHole UI 設置出現錯誤</a></li>
+    <li><a href="#更改-pihole-配置文件">更改 PiHole 配置文件</a></li>
+  </ol>
+</nav>
+    </div>
+</section>
+
+
+    
+    
+    <h2 id="介紹-wildcard-dns">介紹 Wildcard DNS</h2>
+<p>甚麼是 Wildcard DNS??</p>
+<p>要讓 <code>whatever.hi.my.domain</code> 、
+<code>whenever.hi.my.domain</code> 、
+<code>whoever.hi.my.domain</code> 全部指向 54.87.87.87 IP 位址</p>
+<p>不用設置三個 DNS 紀錄，設置一個就好了</p>
+<p>讓所有 <code>.hi.my.domain</code> 的子域名全部指向同一個 54.87.87.87 IP 位址，這就是 Wildcard Dns</p>
+<h2 id="pihole-ui-設置出現錯誤">PiHole UI 設置出現錯誤</h2>
+<p>如果像是 bind 之類的 DNS，可能只要直接設置 A 紀錄：<code>*.hi.my.domain</code> =&gt; 54.87.87.87，就可以了</p>
+<p>但是如果用 pihole 的 local DNS 的話，用 UI 介面是沒有辦法設置的，如果你像底下這樣輸入，就會顯示錯誤訊息<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/pihole-wildcard-dns/pidns.webp"
+	
+	
+	
+	loading="lazy"
+	
+		alt="錯誤訊息"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>但我們可以去修改 pihole 的配置文件就可以做到了</p>
+<h2 id="更改-pihole-配置文件">更改 PiHole 配置文件</h2>
+<p>首先進入 dnsmasq.d 的資料夾，然後新建立一個 XX-wildcard.conf 的檔案</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> /etc/dnsmasq.d/
+</span></span><span class="line"><span class="cl">sudo nano 05-wildcard.conf
+</span></span></code></pre></div><p>在這個檔案輸入：
+
+ 
+ 
+ 
+ <div>
+     <p class="gist-title"> <a href="https://gist.github.com/penyt/ed7763430df29eb1475f398c75dd58c5" target="_blank"> /etc/dnsmasq.d/05-wildcard.conf </a> </p>
+     <script src="https://gist.github.com/penyt/ed7763430df29eb1475f398c75dd58c5.js?file=05-wildcard.conf"></script>
+ </div>
+ 
+ <style>
+     script {
+         margin-top: 0;
+     }
+ </style>
+之後保存退出 (記得把域名和 IP 改成你要的)</p>
+<p>然後讓 pihole 重新抓你的配置檔</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">service pihole-FTL restart
+</span></span></code></pre></div><p>這樣其實就完成了，要確認的話用 nslookup，他就會顯示你設定的 IP 了 (當然你 nslookup 的環境要使用 pihole 的 dns，不然怎麼 nslookup 都看不到喔)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nslookup whatever.hi.my.domain
+</span></span><span class="line"><span class="cl">nslookup whenever.hi.my.domain
+</span></span><span class="line"><span class="cl">nslookup whoever.hi.my.domain
+</span></span></code></pre></div><p>by Pen</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pihole/">pihole</a>
+        
+            <a href="/tags/dns-%E5%8A%A0%E6%B2%B9/">dns 加油</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <iframe 
+    class="LikeCoin" 
+    height="160" 
+    src="https://button.like.co/in/embed/ytpenpen/button?referrer=https%3a%2f%2fli.penli.quest%2fp%2fpi-wildcard-dns%2f" 
+    width="300" 
+    frameborder=0
+></iframe>
+ 
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="penyt/li-penli-quest-comments"
+    data-repo-id="R_kgDOLnRQHw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLnRQH84CenE0"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('noborder_light');
+            } else {
+                setGiscusTheme('noborder_gray');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 Pen
+    </section>
+    
+    <section class="powerby">
+        
+            到這頁的屁股了:3 <br> 📬Email：lipen@penli.quest <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建立 <br />
+        主題 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.23.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 設計
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

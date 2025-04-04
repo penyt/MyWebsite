@@ -1,0 +1,62 @@
+{{ $pass := .Get "pass" }}
+{{ $passInt := int $pass }}
+{{ $passInt := div $passInt 8890 }}
+{{ $passInt := sub $passInt 840745 }}
+{{ $passwordInt := div $passInt 610 }}
+{{ $password := printf "%04d" $passwordInt }}
+
+
+<div id="password-box" class="password-box">
+    <input type="password" id="password" class="password-input" placeholder="小企密碼">
+    <button id="submit" class="submit-button">送出</button>
+</div>
+
+<div id="inner-content" style="display: none;">
+  {{ .Inner | markdownify }}
+</div>
+
+<script>
+document.getElementById("submit").addEventListener("click", function() {
+    var userInput = document.getElementById("password").value;
+    if (userInput === "{{ $password }}") {
+        //正確
+        document.getElementById("password-box").style.display = "none";
+        document.getElementById("inner-content").style.display = "block";
+    } else {
+        //錯誤
+        document.getElementById("password").value = ""; // 清空输入框
+        document.getElementById("password").setAttribute("placeholder", "error 88");
+    }
+});
+</script>
+
+<style>
+.password-box {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.password-input {
+    width: calc(100% - 100px);
+    padding: 8px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: transparent;
+}
+.submit-button {
+    padding: 8px 15px;
+    background-color: #afafaf;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.submit-button:hover {
+    background-color: #6a6a6a;
+}
+</style>

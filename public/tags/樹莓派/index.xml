@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>樹莓派 on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/%E6%A8%B9%E8%8E%93%E6%B4%BE/</link>
+        <description>Recent content in 樹莓派 on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Tue, 14 Jan 2025 16:22:16 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E6%A8%B9%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>使用 Node.js 製作的樹莓派溫度監控網頁應用</title>
+        <link>https://li.penli.quest/p/pi-pen/</link>
+        <pubDate>Tue, 14 Jan 2025 16:22:16 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/pi-pen/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;這是我所設計的一個簡易網頁應用，我叫他 pi-pen&lt;/p&gt;
+&lt;p&gt;他是使用 node.js 作為後端，利用樹莓派內建的系統溫度文件或系統命令來獲取溫度&lt;/p&gt;
+&lt;p&gt;接著透過 javascript 將數據實時每 5 秒更新並顯示在網頁上。&lt;/p&gt;
+&lt;h2 id=&#34;使用方式&#34;&gt;使用方式&lt;/h2&gt;
+&lt;h3 id=&#34;程式碼結構&#34;&gt;程式碼結構&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;pi-pen&lt;/strong&gt;&lt;br&gt;
+├ &lt;a class=&#34;link&#34; href=&#34;https://github.com/penyt/pi-pen/blob/main/server.js&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;server.js
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; &lt;br&gt;
+└ public&lt;br&gt;
+  └ &lt;a class=&#34;link&#34; href=&#34;https://github.com/penyt/pi-pen/blob/main/public/index.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;index.html
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/p&gt;
+
+ 
+ 
+ 
+ &lt;div&gt;
+     &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a&#34; target=&#34;_blank&#34;&gt; server.js &lt;/a&gt; &lt;/p&gt;
+     &lt;script src=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=server.js&#34;&gt;&lt;/script&gt;
+ &lt;/div&gt;
+ 
+ &lt;style&gt;
+     script {
+         margin-top: 0;
+     }
+ &lt;/style&gt;
+
+ 
+ 
+ 
+ &lt;div&gt;
+     &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a&#34; target=&#34;_blank&#34;&gt; /public/index.html &lt;/a&gt; &lt;/p&gt;
+     &lt;script src=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=index.html&#34;&gt;&lt;/script&gt;
+ &lt;/div&gt;
+ 
+ &lt;style&gt;
+     script {
+         margin-top: 0;
+     }
+ &lt;/style&gt;
+&lt;h3 id=&#34;實際操作&#34;&gt;實際操作&lt;/h3&gt;
+&lt;p&gt;到你想要存放程式碼的位置，將我的 repo 複製下來 &lt;code&gt;git clone https://github.com/penyt/pi-pen.git&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;或是複製 &lt;code&gt;server.js&lt;/code&gt; 和 &lt;code&gt;/public/index.html&lt;/code&gt; 這兩個主要檔案也可以。&lt;/p&gt;
+&lt;p&gt;接著在 pi-pen 資料夾下，執行&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;node server.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;若樹莓派沒有 node，先 &lt;a class=&#34;link&#34; href=&#34;https://nodejs.org/zh-tw/download&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;看這個
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; 安裝&lt;/p&gt;
+&lt;p&gt;此時，在瀏覽器打上 &lt;a class=&#34;link&#34; href=&#34;http://localhost:5472&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;http://localhost:5472
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; 就可以看到如下的畫面，這就是樹莓派的溫度&lt;/p&gt;
+&lt;img width=&#34;1120&#34; alt=&#34;10min-bigscreen&#34; src=&#34;https://github.com/user-attachments/assets/318254b7-477a-40db-9d22-3f013fb6c525&#34; /&gt;
+&lt;p&gt;右邊有下拉選單可以視需求調整要觀察的時間&lt;/p&gt;
+&lt;h3 id=&#34;關於資料儲存&#34;&gt;關於資料儲存&lt;/h3&gt;
+&lt;p&gt;這個程式主要只是在快速有圖形介面觀察溫度，而不需要監測硬體，主要目的在於方便快速&lt;/p&gt;
+&lt;p&gt;所以我用來存放資料的 json 檔案（程式執行後會自動生成在 pi-pen 資料夾裡），只會儲存 &lt;strong&gt;24小時&lt;/strong&gt; 的數據！！！&lt;/p&gt;
+&lt;p&gt;超過 24 小時的會自動被刪除，不要把它當成永久儲存溫度數據的地方喔&lt;/p&gt;
+&lt;h2 id=&#34;如何在背景運行&#34;&gt;如何在背景運行？&lt;/h2&gt;
+&lt;p&gt;我這邊使用 &lt;a class=&#34;link&#34; href=&#34;https://pm2.io/docs/runtime/guide/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;PM2
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;，來達成背景運作的功效&lt;/p&gt;
+&lt;p&gt;若樹莓派上沒有 PM2 那麼就用 npm 來安裝（官方的方式）&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;npm install pm2 -g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接著進入 &lt;code&gt;pi-pen&lt;/code&gt; 資料夾（&lt;code&gt;cd /path/to/pi-pen&lt;/code&gt;），執行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pm2 start server.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果有更改 &lt;code&gt;server.js&lt;/code&gt; 的檔名，這裡要記得改掉&lt;/p&gt;
+&lt;p&gt;查看 PM2 狀態：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pm2 status
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;查看日誌：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pm2 logs
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這時就算關閉終端，這個網頁應用還是會繼續運行&lt;/p&gt;
+&lt;h2 id=&#34;也可使用-vcgencmd-命令來獲取溫度&#34;&gt;也可使用 vcgencmd 命令來獲取溫度&lt;/h2&gt;
+&lt;p&gt;只需要將 &lt;code&gt;server.js&lt;/code&gt; 替換成底下這個 &lt;code&gt;server-vcgencmd.js&lt;/code&gt; 就可以了
+
+ 
+ 
+ 
+ &lt;div&gt;
+     &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a&#34; target=&#34;_blank&#34;&gt; server-vcgencmd.js &lt;/a&gt; &lt;/p&gt;
+     &lt;script src=&#34;https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=server-vcgencmd.js&#34;&gt;&lt;/script&gt;
+ &lt;/div&gt;
+ 
+ &lt;style&gt;
+     script {
+         margin-top: 0;
+     }
+ &lt;/style&gt;&lt;/p&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

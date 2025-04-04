@@ -1,0 +1,201 @@
+// gist style
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono');
+body .gist .blob-code-inner { //程式碼部分
+    font-size: 14px !important;
+    margin-top: 0 !important;
+}
+body .gist .gist-meta { //底欄部分
+    display: none;
+}
+body .gist .gist-file::after { //下面的欄
+    content: "hosted with lovelove by GitHub ˙w˙";
+    display: block;
+    text-align: right;
+    font-size: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: var(--body-text-color);
+    background-color:var(--blockquote-background-color);
+}
+body .gist .gist-file {
+    border: none;
+    margin-top: 0 !important;
+}
+body .gist tr:first-child td {//最上排寬度增加
+    padding-top: 15px !important;
+}
+body .gist tr:last-child td {//最下排寬度增加
+    padding-bottom: 15px !important;
+}
+body .gist .blob-num {//行數不要邊框、不要hover、字體大小
+    border: none;
+    pointer-events: none;
+    font-size: 14px !important;
+}
+body .gist .gist-data {//滾軸底部有一條線
+    border-bottom: none;
+    border-radius: 0px; //上面兩個角
+}
+.gist-title { //標題欄
+    /*border: 1px solid #000; /* 設置邊框 */
+    padding: 5px; /* 添加一些內邊距 */
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: var(--body-text-color);
+    background-color:var(--blockquote-background-color);
+    margin-bottom: 0;
+}
+
+
+//scrollbar
+body .gist ::-webkit-scrollbar {
+  height: 20px;
+}
+body .gist ::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 15px;
+  background-clip: content-box;
+  border: 6px solid transparent;
+}
+body .gist ::-webkit-scrollbar-thumb:hover {
+  background-color: #899497;
+}
+body .gist ::-webkit-scrollbar-track {
+  background-color:var(--blockquote-background-color);
+}
+
+
+
+
+body .gist .highlight {
+    background: #293134;
+}
+body .gist .blob-num,
+body .gist .blob-code-inner,
+body .gist .pl-ent,
+body .gist .pl-s1,
+body .gist .pl-s1 .pl-s2,
+body .gist .pl-smi,
+body .gist .pl-smp,
+body .gist .pl-stj,
+body .gist .pl-vo,
+body .gist .pl-vpf {
+    color: #e0e2e4;
+}
+body .gist .pl-c,
+body .gist .pl-c span {
+    color: #66747b;
+    font-style: italic;
+}
+body .gist .pl-mb {
+    color: #ec7600;
+    font-weight: 700;
+}
+body .gist .pl-mh .pl-en {
+    color: #66747b;
+    font-weight: 700;
+}
+body .gist .pl-mi {
+    color: #93c763;
+    font-style: italic;
+}
+body .gist .pl-sc {
+    color: #96989a;
+}
+body .gist .pl-st {
+    color: #da4236;
+}
+body .gist .pl-c1>.pl-c1 {
+    color: #678cb1;
+}
+body .gist .pl-c1,
+body .gist .pl-sr .pl-cce {
+    color: #ffcd22;
+}
+body .gist .pl-e,
+body .gist .pl-k,
+body .gist .pl-mdh,
+body .gist .pl-mdr,
+body .gist .pl-ml,
+body .gist .pl-mm,
+body .gist .pl-mo,
+body .gist .pl-mp,
+body .gist .pl-mr,
+body .gist .pl-ms,
+body .gist .pl-s1 .pl-v,
+body .gist .pl-s3 {
+    color: #93c763;
+}
+body .gist .pl-en,
+body .gist .pl-v {
+    color: #678cb1;
+}
+body .gist .pl-mh,
+body .gist .pl-mq {
+    color: #66747b;
+}
+body .gist .pl-pds,
+body .gist .pl-s,
+body .gist .pl-s1 .pl-pse .pl-s2,
+body .gist .pl-sv {
+    color: #ec7600;
+}
+body .gist .pl-sr,
+body .gist .pl-sr .pl-sra,
+body .gist .pl-sr .pl-sre,
+body .gist .pl-src {
+    color: #d39745;
+}
+body .gist .pl-mi1,
+body .gist .pl-mdht {
+    color: #e0e2e4;
+    background: rgba(0, 64, 0, .5);
+}
+body .gist .pl-md,
+body .gist .pl-mdhf,
+body .gist .pl-id,
+body .gist .pl-ii {
+    color: #e0e2e4;
+    background: rgba(64, 0, 0, .5);
+}
+
+
+/*body .gist .gist-file {
+  margin-bottom: 0; //底部邊距(不知道在哪)
+  border: none; //外框
+  border-radius: 0px; //圓角(不知道在哪，可能是下面)
+}
+body .gist .gist-data {
+  border-bottom: none; //滾軸底部有一條線
+  border-radius: 0px; //上面兩個角
+  //background-color: #e9e9e9;
+}
+body .gist .blob-wrapper {
+  border-radius: 0;
+}
+body .gist .highlight {
+  background-color: transparent;
+  font-family: 'Droid Sans Mono', monospace;
+  font-size: 14px;
+}
+body .gist .highlight td {
+  padding: 5px 15px !important;
+  line-height: 1;
+  font-family: inherit;
+  font-size: inherit;
+}
+body .gist tr:first-child td {
+  padding-top: 15px !important;
+}
+body .gist tr:last-child td {
+  padding-bottom: 15px !important;
+}
+body .gist .blob-num {
+  color: #ced4da;
+  background-color: #8b8b8b;
+  pointer-events: none;
+}*/

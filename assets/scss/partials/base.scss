@@ -1,0 +1,76 @@
+html {
+    font-size: 62.5%;
+    overflow-y: scroll;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--body-background);
+    margin: 0;
+    font-family: var(--base-font-family);
+    font-size: 1.6rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// 主題原始的滾動條
+/* scrollbar styles for Firefox */
+//* {
+//    scrollbar-width: auto;
+//    scrollbar-color: var(--scrollbar-thumb) transparent;
+//}
+/* scrollbar styles for Chromium */
+//::-webkit-scrollbar {
+//    height: auto;
+//}
+//::-webkit-scrollbar-thumb {
+//    background-color: var(--scrollbar-thumb);
+//}
+//::-webkit-scrollbar-track {
+//    background-color: transparent;
+//}
+
+//scrollbar樣式
+html {
+    ::-webkit-scrollbar {
+        width: 20px;
+        height: 20px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-thumb);
+        border-radius: 15px;
+        background-clip: content-box;
+        border: 6px solid transparent;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #899497;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+}
+/*body::-webkit-scrollbar {
+    width: 20px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb);
+    border-radius: 15px;
+    background-clip: content-box;
+    border: 6px solid transparent;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #899497;
+}
+body::-webkit-scrollbar-track {
+    background-color: transparent;
+}*/
+/* Browsers without `::-webkit-scrollbar-*` support */
+@supports (-webkit-scrollbar: none) {
+    html {
+        scrollbar-width: auto;
+        scrollbar-color: var(--scrollbar-thumb) transparent;
+    }
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>toc太需要了吧 on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/toc%E5%A4%AA%E9%9C%80%E8%A6%81%E4%BA%86%E5%90%A7/</link>
+        <description>Recent content in toc太需要了吧 on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Sat, 23 Mar 2024 16:15:07 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/toc%E5%A4%AA%E9%9C%80%E8%A6%81%E4%BA%86%E5%90%A7/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo Stack 主題 -- 目錄 toc 設置更改</title>
+        <link>https://li.penli.quest/p/stack-toc/</link>
+        <pubDate>Sat, 23 Mar 2024 16:15:07 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/stack-toc/</guid>
+        <description>&lt;h2 id=&#34;用戶體驗&#34;&gt;用戶體驗&lt;/h2&gt;
+&lt;p&gt;stack主題的toc在手機端並不顯示，但我自己覺得目錄蠻重要的&lt;/p&gt;
+&lt;p&gt;而且手機寬度縮短，長度就會變長，沒有目錄的話就要一直滑滑滑，體驗並不是很好&lt;/p&gt;
+&lt;p&gt;可是電腦版目錄在右側的版面我也很喜歡，所以就打算改成 手機端目錄在文章開頭、電腦端則照舊在右側&lt;/p&gt;
+&lt;h2 id=&#34;參考引入-toc-的-html&#34;&gt;參考、引入 toc 的 html&lt;/h2&gt;
+&lt;p&gt;之前 &lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/issues/422&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github issue
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; 有人做過把目錄放進文章，根據這個改了一下，加上手機端的條件、更改樣式 (程式碼在後面)&lt;/p&gt;
+&lt;p&gt;在想要目錄出現的位置引入 toc-inline 就可以了（我放在 content.html 的&lt;code&gt;&amp;lt;section class=&amp;quot;article-content&amp;quot;&amp;gt;&lt;/code&gt;裡面第一行&lt;/p&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /layouts/partials/article/components/content.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=content.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;h2 id=&#34;程式碼&#34;&gt;程式碼&lt;/h2&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /layouts/partials/article/components/toc-inline.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=toc-inline.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /assets/scss/custom.scss &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=toc-custom.scss&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;h2 id=&#34;效果&#34;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;http://ncloud.penli.quest/s/toc-preview/download/preview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;手機端效果1&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;center&gt;🔼 手機端效果1&lt;/center&gt;  
+&lt;hr&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;http://ncloud.penli.quest/s/preview2/download/preview2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;手機端效果2&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;center&gt;🔼 手機端效果2&lt;/center&gt;  
+&lt;br&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

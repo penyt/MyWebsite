@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>yml on 企鵝窩</title>
+        <link>https://li.penli.quest/categories/yml/</link>
+        <description>Recent content in yml on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Mon, 01 Apr 2024 09:53:20 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/yml/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>關於用 docker 安裝 hugo 的 baseurl 問題</title>
+        <link>https://li.penli.quest/p/hugo-docker-baseurl/</link>
+        <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/hugo-docker-baseurl/</guid>
+        <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
+&lt;p&gt;用docker架設hugo網站的人可能不多，不過寫下前陣子遇到的問題&lt;/p&gt;
+&lt;p&gt;在config檔案明明設置了baseurl，但是實際的permalink卻一直是https://localhost:1313&lt;/p&gt;
+&lt;p&gt;很多需要重新導向的服務都會出問題（前陣子遇到utterance在登入github的時候導不回來&lt;/p&gt;
+&lt;p&gt;後來爬了很多文發現是hugo server的問題，可能被其他預設的配置蓋掉了config的設定&lt;/p&gt;
+&lt;h2 id=&#34;解決&#34;&gt;解決&lt;/h2&gt;
+&lt;p&gt;當在容器裡進行hugo server或hugo的時候，直接指定&lt;code&gt;--baseurl&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/9917d11779859124057ff586134852ae&#34; target=&#34;_blank&#34;&gt; docker-compose.yaml &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/9917d11779859124057ff586134852ae.js&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;p&gt;我是用docker compose安裝hugo，所以直接加在command的地方，然後不要port&lt;/p&gt;
+&lt;p&gt;設置好新的yaml後，再到yaml的資料夾裡面&lt;code&gt;docker compose up -d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;permalink就變成https://my.domain.com了&lt;/p&gt;
+&lt;p&gt;可以去網頁直接F12確認&lt;/p&gt;
+&lt;p&gt;這時候utterance或其他重新導向的服務就可以正常使用不會導去localhost了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/JamesTurland/JimsGarage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/JamesTurland/JimsGarage
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sujaypillai.dev/2020/08/2020-08-17-setting-up-blog-on-aws-using-traefik-docker/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sujaypillai.dev/2020/08/2020-08-17-setting-up-blog-on-aws-using-traefik-docker/
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

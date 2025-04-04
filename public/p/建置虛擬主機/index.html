@@ -1,0 +1,953 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='GCP建立虛擬主機（圖片較多，因為比較多截圖的關係，這篇用夜晚模式會比較好閱讀）'>
+<title>建置虛擬主機</title>
+
+<link rel='canonical' href='https://li.penli.quest/p/%E5%BB%BA%E7%BD%AE%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/'>
+
+<link rel="stylesheet" href="/scss/style.min.1a7af78c150fa8d788e11473c17cc4ce25f14f33cc32e62debcc18c436655df3.css"><meta property='og:title' content='建置虛擬主機'>
+<meta property='og:description' content='GCP建立虛擬主機（圖片較多，因為比較多截圖的關係，這篇用夜晚模式會比較好閱讀）'>
+<meta property='og:url' content='https://li.penli.quest/p/%E5%BB%BA%E7%BD%AE%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/'>
+<meta property='og:site_name' content='企鵝窩'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='免費的很香' /><meta property='article:tag' content='靜態外部IP' /><meta property='article:tag' content='SSH' /><meta property='article:published_time' content='2024-03-22T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2024-03-22T00:00:00&#43;00:00'/>
+<meta name="twitter:title" content="建置虛擬主機">
+<meta name="twitter:description" content="GCP建立虛擬主機（圖片較多，因為比較多截圖的關係，這篇用夜晚模式會比較好閱讀）">
+    <link rel="shortcut icon" href="https://myrr.penli.quest/favicon.ico" />
+<style>
+     
+    :root {
+        --article-font-family: "Noto Sans Traditional Chinese", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+
+<script defer src="https://umami.penli.quest/script.js" data-website-id="2f0ed1d6-56ff-4a08-8c53-0545504d81b4"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PYV5BRF9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6PYV5BRF9Z');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+
+        
+        <a class="back" href="javascript:scroll(0,0)"></a>
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <button type="button" id="left-menu" aria-label="切換選單">
+            <span>
+                <span>選 單 sidebar</span>
+            </span>
+        </button>
+        <ol class="menu" id="lmenu">
+            
+            
+                
+                <li >
+                    <a href='/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                        
+                        <span>首頁</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/about/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                        
+                        <span>關於我</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/archives/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                        
+                        <span>所有文章</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/search/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                        
+                        <span>搜尋</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/donate-and-links/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                        <span>連結</span>
+                    </a>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>夜晚模式</span>
+                </li>
+            
+
+        </ol>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#建立虛擬主機">建立虛擬主機</a>
+      <ol>
+        <li><a href="#建立帳號">建立帳號</a></li>
+        <li><a href="#建立專案">建立專案</a></li>
+        <li><a href="#建立主機">建立主機</a></li>
+      </ol>
+    </li>
+    <li><a href="#保留靜態外部ip">保留靜態外部IP</a></li>
+    <li><a href="#變更歷史">變更歷史</a></li>
+    <li><a href="#ssh-連線">SSH 連線</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/" style="background-color: #003d79; color: #fff;">
+                虛擬主機
+            </a>
+        
+            <a href="/categories/gcp/" style="background-color: #0f61b2; color: #fff;">
+                GCP
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%BB%BA%E7%BD%AE%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/">建置虛擬主機</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            GCP建立虛擬主機（圖片較多，因為比較多截圖的關係，這篇用夜晚模式會比較好閱讀）
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Mar 22, 2024</time>
+            </div>
+        
+
+        
+              
+              
+              
+            
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    
+                    閱讀時間：21 分鐘
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+
+
+<section class="toc toc--inline">
+    <p class="toc--title">目錄</p>
+    <p class="toc--desc"> inline table of content only on mobile</p>
+    <div class="">
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#建立虛擬主機">建立虛擬主機</a>
+      <ol>
+        <li><a href="#建立帳號">建立帳號</a></li>
+        <li><a href="#建立專案">建立專案</a></li>
+        <li><a href="#建立主機">建立主機</a></li>
+      </ol>
+    </li>
+    <li><a href="#保留靜態外部ip">保留靜態外部IP</a></li>
+    <li><a href="#變更歷史">變更歷史</a></li>
+    <li><a href="#ssh-連線">SSH 連線</a></li>
+  </ol>
+</nav>
+    </div>
+</section>
+
+
+    
+    
+    <p>用GCP建立一個自己的虛擬主機一點都不難</p>
+<p>接下來會介紹如何獲取第一次使用GCP的免費額度，並實際建立一個新的虛擬主機🎈</p>
+<h2 id="建立虛擬主機">建立虛擬主機</h2>
+<h3 id="建立帳號">建立帳號</h3>
+<p>首先當然要有一個google帳號，然後用他登入 <a class="link" href="https://console.cloud.google.com/?hl=zh-tw"  target="_blank" rel="noopener"
+    >GCP
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></p>
+<p>然後免費試用給他按下去就對了</p>
+<p>全部同意，繼續
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F1.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>步驟1/2，就跟平常辦一些帳號一樣，選一選然後繼續
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F2.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>步驟2/2，就如實填，然後要填一張信用卡當作付款方式(簽帳金融卡應該也可以)，他會試刷一美金</p>
+<p>但之後有300美金所以基本上還不會扣到款，等90天結束需要付款的時候google會再問你
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F3.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div><br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F4.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<h3 id="建立專案">建立專案</h3>
+<p>建立專案名稱，他有一些符號或大小寫有規定，就照著他的規定去設定<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F5.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>設定好讓他跑一下，建立完成會出現這個畫面，會顯示專案的資訊</p>
+<p>然後按左上角的三條橫線叫出選單<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F6.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>選擇compute engine -&gt; VM執行個體<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F7.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>會需要啟用comput engine API，點選啟用，這裡需要等一下子<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F8.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>進到這個畫面前置作業就都完成了，可以開始新建自己的虛擬主機了<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F9.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<h3 id="建立主機">建立主機</h3>
+<p>設定名稱(一樣會有一些符號的小限制)，區域選 奧勒岡州、愛荷華州、南卡羅來納州，然後機器類型選e2-micro</p>
+<p>為甚麼要選這些呢?因為這是GCP的免費限制!!可以參考<a class="link" href="https://cloud.google.com/free/docs/free-cloud-features?hl=zh-tw#free-tier-usage-limits"  target="_blank" rel="noopener"
+    >官方的文件
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></p>
+<p>當然，要選在亞洲也沒有不行，而且90天內我們有300美元(約台幣9,000元)，可以之後搬到新的主機就好</p>
+<p>不過不是特別大的流量的話，我是覺得地區選在美國速度也沒有很慢，這邊就自己選擇</p>
+<p>右邊橘色框框會根據你所選的虛擬主機配置實時更新，可以用那個大略估計你的預算，當然那只是預估而已!  gcp計費是用多少付多少的機制<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F10.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>然後往下，這邊會發現有自訂的選項，CPU和記憶體都可以根據自己的需要去設定，這邊我們直接使用配置好的e2-micro<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F11.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>繼續往下，我們會看到開機磁碟的選項，就和一般電腦一樣你會需要一個磁碟</p>
+<p>這邊點選 變更，然後我選ubuntu和標準永久磁碟，這邊也是根據自己的需求調整(google很好心的還有附上磁碟類型的比較)，想要直接選SSD或極端也可以</p>
+<p>大小先選10GB，一樣是根據需求調整，如果要用來架設雲端的話，可以把空間設大一點</p>
+<p>不過隨著這些改變的當然就是價錢啦!就根據需要自行評估了💸<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F12.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>選好開機磁碟後，右邊的價錢預估也會跟著變動<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F13.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>再來往下到防火牆的部分，如果你是想要架設網站，要讓其他人訪問你的網站，要把http和https打勾，這樣gcp會在你確定建立VM的時候，一併幫你把端口(port)80和443打開<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F14.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div><br>
+確定之後按下建立</p>
+<p>等他跑一下，這邊建議他在跑的時候不要動視窗，不管是甚麼設置都一樣，耐心等一下比較不會出現未知的錯誤，也不會很久<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F15.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>接著看到主機名稱的左邊出現綠色勾勾✅就是成功建立了<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F16.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>這時候你自己的虛擬主機就建立好了!</p>
+<hr>
+<h2 id="保留靜態外部ip">保留靜態外部IP</h2>
+<p>後面接著講一些小設定，主機設立好了還有一個很重要的東西是我們的IP位址</p>
+<p>目前設定下來我們的外部IP位址其實是動態的，意思就是在每次主機關機重啟的過程IP位址是會變動的</p>
+<p>那這個對於一些不論是增加安全性的IP白名單(VPN)或是其他網域的設定會比較麻煩</p>
+<p>這邊就示範一下如何保留靜態IP位址(當然如果喜歡動態的IP也可以維持不變，動態IP也有它的好處 eg.隱私性、費用問題等等&hellip;)</p>
+<p>首先我們先點進來我們的VM，然後點選上方的「編輯」<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F17.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>滑到下方會有一個「網路介面」把它點開<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F18.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>可以看到 外部IPv4 的地方是「臨時」<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F19.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div><br>
+我們點選他</p>
+<p>然後選擇「保留靜態外部IP位址」<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F20.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>輸入名稱，然後按 保留<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F21.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div><br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F22.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>儲存對主機的變更，之後跳出來，看到的外部IP就已經是靜態的IP了，重新開機也不會變動<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F23.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>如果不放心可以再點進去主機查看<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F24.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<hr>
+<h2 id="變更歷史">變更歷史</h2>
+<p>右上角的小鈴鐺可以看到你做的每一個變更動作<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F25.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<hr>
+<h2 id="ssh-連線">SSH 連線</h2>
+<p>再來是用SSH連線進入虛擬主機</p>
+<p>這邊用最直接的方式，透過gcp的SSH按鈕進入，點 在瀏覽器視窗中開啟<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F26.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div></p>
+<p>接著他會彈出一個視窗(如果瀏覽器有封鎖彈出式視窗要記得解除)，告訴你他正在連線</p>
+<p>如果有再彈出要允許他連線的話直接按 授權/同意/允許 就可以了(肯定是要授權才能使用他這個SSH連線方式&hellip;)</p>
+<p>這個SSH按鈕他會生成一對金鑰掛到你的虛擬主機，整個過程會慢一點，後面會再介紹別的方式連線主機</p>
+<p>最後&hellip;<br>
+<div style="display: flex; justify-content: center;">
+<img src="https://myrr.penli.quest/vm1-create-img%2F27.webp"
+	
+	
+	
+	loading="lazy"
+	
+	
+	style="max-height: 700px;"
+>
+</div><br>
+出現這個視窗就是成功用SSH連線了!!</p>
+<p>底下綠色的會是user@vm-name</p>
+<p>@前面被我馬賽克的是你的使用者名稱(通常會是這個google帳號)，@後面就是你的虛擬主機名稱</p>
+<p>eg. gmail是iampenguin@gmail.com，用戶名會是iampenguin</p>
+<p>而虛擬主機是my-first-vm的話，就會顯示 <font color=#00FF00>iampenguin@my-first-vm</font></p>
+<hr>
+<p>今天的介紹就到這裡ㄌ</p>
+<p>by Pen</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%85%8D%E8%B2%BB%E7%9A%84%E5%BE%88%E9%A6%99/">免費的很香</a>
+        
+            <a href="/tags/%E9%9D%9C%E6%85%8B%E5%A4%96%E9%83%A8ip/">靜態外部IP</a>
+        
+            <a href="/tags/ssh/">SSH</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <iframe 
+    class="LikeCoin" 
+    height="160" 
+    src="https://button.like.co/in/embed/ytpenpen/button?referrer=https%3a%2f%2fli.penli.quest%2fp%2f%25E5%25BB%25BA%25E7%25BD%25AE%25E8%2599%259B%25E6%2593%25AC%25E4%25B8%25BB%25E6%25A9%259F%2f" 
+    width="300" 
+    frameborder=0
+></iframe>
+ 
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="penyt/li-penli-quest-comments"
+    data-repo-id="R_kgDOLnRQHw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLnRQH84CenE0"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('noborder_light');
+            } else {
+                setGiscusTheme('noborder_gray');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 Pen
+    </section>
+    
+    <section class="powerby">
+        
+            到這頁的屁股了:3 <br> 📬Email：lipen@penli.quest <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建立 <br />
+        主題 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.23.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 設計
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

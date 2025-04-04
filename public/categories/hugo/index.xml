@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>hugo on 企鵝窩</title>
+        <link>https://li.penli.quest/categories/hugo/</link>
+        <description>Recent content in hugo on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Tue, 02 Apr 2024 09:25:58 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Hugo Stack 主題 -- 目錄 toc 設置更改</title>
+        <link>https://li.penli.quest/p/stack-toc/</link>
+        <pubDate>Sat, 23 Mar 2024 16:15:07 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/stack-toc/</guid>
+        <description>&lt;h2 id=&#34;用戶體驗&#34;&gt;用戶體驗&lt;/h2&gt;
+&lt;p&gt;stack主題的toc在手機端並不顯示，但我自己覺得目錄蠻重要的&lt;/p&gt;
+&lt;p&gt;而且手機寬度縮短，長度就會變長，沒有目錄的話就要一直滑滑滑，體驗並不是很好&lt;/p&gt;
+&lt;p&gt;可是電腦版目錄在右側的版面我也很喜歡，所以就打算改成 手機端目錄在文章開頭、電腦端則照舊在右側&lt;/p&gt;
+&lt;h2 id=&#34;參考引入-toc-的-html&#34;&gt;參考、引入 toc 的 html&lt;/h2&gt;
+&lt;p&gt;之前 &lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack/issues/422&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;github issue
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; 有人做過把目錄放進文章，根據這個改了一下，加上手機端的條件、更改樣式 (程式碼在後面)&lt;/p&gt;
+&lt;p&gt;在想要目錄出現的位置引入 toc-inline 就可以了（我放在 content.html 的&lt;code&gt;&amp;lt;section class=&amp;quot;article-content&amp;quot;&amp;gt;&lt;/code&gt;裡面第一行&lt;/p&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /layouts/partials/article/components/content.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=content.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;h2 id=&#34;程式碼&#34;&gt;程式碼&lt;/h2&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /layouts/partials/article/components/toc-inline.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=toc-inline.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394&#34; target=&#34;_blank&#34;&gt; /assets/scss/custom.scss &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/ded9d1f55c1f10673a35ea4e00117394.js?file=toc-custom.scss&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;h2 id=&#34;效果&#34;&gt;效果&lt;/h2&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;http://ncloud.penli.quest/s/toc-preview/download/preview.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;手機端效果1&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;center&gt;🔼 手機端效果1&lt;/center&gt;  
+&lt;hr&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;http://ncloud.penli.quest/s/preview2/download/preview2.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;手機端效果2&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;center&gt;🔼 手機端效果2&lt;/center&gt;  
+&lt;br&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>關於用 docker 安裝 hugo 的 baseurl 問題</title>
+        <link>https://li.penli.quest/p/hugo-docker-baseurl/</link>
+        <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/hugo-docker-baseurl/</guid>
+        <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
+&lt;p&gt;用docker架設hugo網站的人可能不多，不過寫下前陣子遇到的問題&lt;/p&gt;
+&lt;p&gt;在config檔案明明設置了baseurl，但是實際的permalink卻一直是https://localhost:1313&lt;/p&gt;
+&lt;p&gt;很多需要重新導向的服務都會出問題（前陣子遇到utterance在登入github的時候導不回來&lt;/p&gt;
+&lt;p&gt;後來爬了很多文發現是hugo server的問題，可能被其他預設的配置蓋掉了config的設定&lt;/p&gt;
+&lt;h2 id=&#34;解決&#34;&gt;解決&lt;/h2&gt;
+&lt;p&gt;當在容器裡進行hugo server或hugo的時候，直接指定&lt;code&gt;--baseurl&lt;/code&gt;&lt;/p&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/9917d11779859124057ff586134852ae&#34; target=&#34;_blank&#34;&gt; docker-compose.yaml &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/9917d11779859124057ff586134852ae.js&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+&lt;p&gt;我是用docker compose安裝hugo，所以直接加在command的地方，然後不要port&lt;/p&gt;
+&lt;p&gt;設置好新的yaml後，再到yaml的資料夾裡面&lt;code&gt;docker compose up -d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;permalink就變成https://my.domain.com了&lt;/p&gt;
+&lt;p&gt;可以去網頁直接F12確認&lt;/p&gt;
+&lt;p&gt;這時候utterance或其他重新導向的服務就可以正常使用不會導去localhost了&lt;/p&gt;
+&lt;h2 id=&#34;參考資料&#34;&gt;參考資料&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/JamesTurland/JimsGarage&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/JamesTurland/JimsGarage
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.sujaypillai.dev/2020/08/2020-08-17-setting-up-blog-on-aws-using-traefik-docker/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://www.sujaypillai.dev/2020/08/2020-08-17-setting-up-blog-on-aws-using-traefik-docker/
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Hugo Stack 主題 -- 我的 Shortcode</title>
+        <link>https://li.penli.quest/p/my-shortcode/</link>
+        <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/my-shortcode/</guid>
+        <description>&lt;h2 id=&#34;-文字對齊&#34;&gt;📏 文字對齊&lt;/h2&gt;
+&lt;center&gt; &amp;lt;center&amp;gt; 置中了吧 &amp;lt;/center&amp;gt; &lt;/center&gt;
+&lt;center&gt; 置中了吧 &lt;/center&gt;
+&lt;p align=&#34;left&#34;&gt; &amp;lt;p align=&#34;left&#34;&amp;gt; 靠左了吧 &amp;lt;/p&amp;gt; &lt;br&gt; 靠左了吧 &lt;/p&gt;
+&lt;p align=&#34;right&#34;&gt; &amp;lt;p align=&#34;right&#34;&amp;gt; 靠右了吧 &amp;lt;/p&amp;gt; &lt;br&gt; 靠右了吧 &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-文字顏色&#34;&gt;🎨 文字顏色&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;font color=#FF0000&amp;gt; 紅色的文字 &amp;lt;/font&amp;gt;&lt;/code&gt;&lt;br&gt;
+&lt;font color=#FF0000&gt; 紅色的文字 &lt;/font&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-html-跳脫字元&#34;&gt;🌀 html 跳脫字元&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;字元&lt;/th&gt;
+&lt;th&gt;編碼&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;lt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;{&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;#123;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;}&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;#125;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;大空格&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;小空格&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.freeformatter.com/html-entities.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;html 字元
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;-書籤連結&#34;&gt;🔖 書籤連結&lt;/h2&gt;
+&lt;p&gt;手機端會太擁擠，所以我讓圖片在手機端隱藏，img的地方加上&lt;code&gt;class=&amp;quot;hide-on-mobile&amp;quot;&lt;/code&gt;，&lt;code&gt;class=&amp;quot;hide-on-mobile&amp;quot;&lt;/code&gt; 寫在 style 裡面&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;md 引入格式：&amp;ensp; &amp;#123;&amp;#123;&amp;lt;link-card name=&#34;&#34; desc=&#34;&#34; link=&#34;&#34; img=&#34;&#34;&amp;gt;&amp;#125;&amp;#125;&lt;/div&gt;  
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;shortcode html 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;樣式 scss 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-書籤連結&#34;&gt;效果 (書籤連結)&lt;/h3&gt;
+&lt;p&gt;&amp;ldquo;shortcode html&amp;rdquo; 連結做成書籤：&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;link-card.html&lt;/n&gt;
+        &lt;p&gt;⋙ shortcode html&lt;/p&gt;
+        &lt;u&gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html&lt;/u&gt;
+    &lt;/div&gt;
+    
+        &lt;img src=&#34;http://ncloud.penli.quest/s/img/download/img.png&#34; alt=&#34;link-card.html&#34; class=&#34;hide-on-mobile&#34;&gt;
+    
+&lt;/a&gt;
+
+&lt;p&gt;&amp;ldquo;樣式 scss&amp;rdquo; 連結做成書籤：&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;link-card-var.scss&lt;/n&gt;
+        &lt;p&gt;⋙ 樣式 scss&lt;/p&gt;
+        &lt;u&gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss&lt;/u&gt;
+    &lt;/div&gt;
+    
+        &lt;img src=&#34;http://ncloud.penli.quest/s/img/download/img.png&#34; alt=&#34;link-card-var.scss&#34; class=&#34;hide-on-mobile&#34;&gt;
+    
+&lt;/a&gt;
+
+&lt;hr&gt;
+&lt;h2 id=&#34;-gist-嵌入加上標題&#34;&gt;👩🏻‍💻 gist 嵌入加上標題&lt;/h2&gt;
+&lt;p&gt;原始的 gist 嵌入的樣式不喜歡，還有最底下那條 &amp;ldquo;hosted with ❤️ by GitHub&amp;rdquo;，我是選擇用自己的樣式保留著，畢竟是 github 的服務，直接刪掉總感覺不太恰當&lt;/p&gt;
+&lt;p&gt;再用一個方框加上標題，可以自訂和gist檔案名稱不同的標題，標題也可以連結到gist的頁面&lt;/p&gt;
+&lt;p&gt;penyt 是我的 github 帳號，你要換成自己的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;div style=&#34;text-align:center&#34;&gt;md 引入格式：&amp;ensp; &amp;#123;&amp;#123;&amp;lt;gist-title &#34;title&#34; penyt ID (檔名)&amp;gt;&amp;#125;&amp;#125;&lt;/div&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;shortcode html 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;樣式 scss 程式碼：&lt;br&gt;
+&lt;a class=&#34;link&#34; href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-gist-標題&#34;&gt;效果 (gist 標題)&lt;/h3&gt;
+&lt;p&gt;
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa&#34; target=&#34;_blank&#34;&gt; gist-title.html &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist-title.html&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa&#34; target=&#34;_blank&#34;&gt; gist.scss &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist.scss&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;文章加密&#34;&gt;🔐文章加密&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;shortcode html：&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;樣式 scss：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;效果-文章加密&#34;&gt;效果 (文章加密)&lt;/h3&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

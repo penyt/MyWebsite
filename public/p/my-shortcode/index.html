@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='放我的 shortcode 和自己的筆記們'>
+<title>Hugo Stack 主題 -- 我的 Shortcode</title>
+
+<link rel='canonical' href='https://li.penli.quest/p/my-shortcode/'>
+
+<link rel="stylesheet" href="/scss/style.min.1a7af78c150fa8d788e11473c17cc4ce25f14f33cc32e62debcc18c436655df3.css"><meta property='og:title' content='Hugo Stack 主題 -- 我的 Shortcode'>
+<meta property='og:description' content='放我的 shortcode 和自己的筆記們'>
+<meta property='og:url' content='https://li.penli.quest/p/my-shortcode/'>
+<meta property='og:site_name' content='企鵝窩'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='好難' /><meta property='article:tag' content='自己的筆記也放' /><meta property='article:tag' content='不然自己每次都要查' /><meta property='article:published_time' content='2024-04-02T09:25:58&#43;00:00'/><meta property='article:modified_time' content='2024-04-02T09:25:58&#43;00:00'/>
+<meta name="twitter:title" content="Hugo Stack 主題 -- 我的 Shortcode">
+<meta name="twitter:description" content="放我的 shortcode 和自己的筆記們">
+    <link rel="shortcut icon" href="https://myrr.penli.quest/favicon.ico" />
+<style>
+     
+    :root {
+        --article-font-family: "Noto Sans Traditional Chinese", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+
+<script defer src="https://umami.penli.quest/script.js" data-website-id="2f0ed1d6-56ff-4a08-8c53-0545504d81b4"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PYV5BRF9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6PYV5BRF9Z');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+
+        
+        <a class="back" href="javascript:scroll(0,0)"></a>
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <button type="button" id="left-menu" aria-label="切換選單">
+            <span>
+                <span>選 單 sidebar</span>
+            </span>
+        </button>
+        <ol class="menu" id="lmenu">
+            
+            
+                
+                <li >
+                    <a href='/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                        
+                        <span>首頁</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/about/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                        
+                        <span>關於我</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/archives/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                        
+                        <span>所有文章</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/search/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                        
+                        <span>搜尋</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/donate-and-links/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                        <span>連結</span>
+                    </a>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>夜晚模式</span>
+                </li>
+            
+
+        </ol>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-文字對齊">📏 文字對齊</a></li>
+    <li><a href="#-文字顏色">🎨 文字顏色</a></li>
+    <li><a href="#-html-跳脫字元">🌀 html 跳脫字元</a></li>
+    <li><a href="#-書籤連結">🔖 書籤連結</a>
+      <ol>
+        <li><a href="#效果-書籤連結">效果 (書籤連結)</a></li>
+      </ol>
+    </li>
+    <li><a href="#-gist-嵌入加上標題">👩🏻‍💻 gist 嵌入加上標題</a>
+      <ol>
+        <li><a href="#效果-gist-標題">效果 (gist 標題)</a></li>
+      </ol>
+    </li>
+    <li><a href="#文章加密">🔐文章加密</a>
+      <ol>
+        <li><a href="#效果-文章加密">效果 (文章加密)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E7%BD%AE%E5%BA%95/" style="background-color: #FF7575; color: #fff;">
+                📌置底
+            </a>
+        
+            <a href="/categories/hugo/" style="background-color: #8d8dd3; color: #fff;">
+                hugo
+            </a>
+        
+            <a href="/categories/hugo-stack/" style="background-color: #b8b8e1; color: #fff;">
+                hugo stack
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/my-shortcode/">Hugo Stack 主題 -- 我的 Shortcode</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            放我的 shortcode 和自己的筆記們
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Apr 02, 2024</time>
+            </div>
+        
+
+        
+              
+              
+              
+            
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    
+                    閱讀時間：9 分鐘
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+
+
+<section class="toc toc--inline">
+    <p class="toc--title">目錄</p>
+    <p class="toc--desc"> inline table of content only on mobile</p>
+    <div class="">
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#-文字對齊">📏 文字對齊</a></li>
+    <li><a href="#-文字顏色">🎨 文字顏色</a></li>
+    <li><a href="#-html-跳脫字元">🌀 html 跳脫字元</a></li>
+    <li><a href="#-書籤連結">🔖 書籤連結</a>
+      <ol>
+        <li><a href="#效果-書籤連結">效果 (書籤連結)</a></li>
+      </ol>
+    </li>
+    <li><a href="#-gist-嵌入加上標題">👩🏻‍💻 gist 嵌入加上標題</a>
+      <ol>
+        <li><a href="#效果-gist-標題">效果 (gist 標題)</a></li>
+      </ol>
+    </li>
+    <li><a href="#文章加密">🔐文章加密</a>
+      <ol>
+        <li><a href="#效果-文章加密">效果 (文章加密)</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+    </div>
+</section>
+
+
+    
+    
+    <h2 id="-文字對齊">📏 文字對齊</h2>
+<center> &lt;center&gt; 置中了吧 &lt;/center&gt; </center>
+<center> 置中了吧 </center>
+<p align="left"> &lt;p align="left"&gt; 靠左了吧 &lt;/p&gt; <br> 靠左了吧 </p>
+<p align="right"> &lt;p align="right"&gt; 靠右了吧 &lt;/p&gt; <br> 靠右了吧 </p>
+<hr>
+<h2 id="-文字顏色">🎨 文字顏色</h2>
+<p><code>&lt;font color=#FF0000&gt; 紅色的文字 &lt;/font&gt;</code><br>
+<font color=#FF0000> 紅色的文字 </font></p>
+<hr>
+<h2 id="-html-跳脫字元">🌀 html 跳脫字元</h2>
+<div class="table-wrapper"><table>
+<thead>
+<tr>
+<th>字元</th>
+<th>編碼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td><code>&amp;lt;</code></td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td><code>&amp;gt;</code></td>
+</tr>
+<tr>
+<td>{</td>
+<td><code>&amp;#123;</code></td>
+</tr>
+<tr>
+<td>}</td>
+<td><code>&amp;#125;</code></td>
+</tr>
+<tr>
+<td>大空格</td>
+<td><code>&amp;emsp;</code></td>
+</tr>
+<tr>
+<td>小空格</td>
+<td><code>&amp;nbsp;</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><a class="link" href="https://www.freeformatter.com/html-entities.html"  target="_blank" rel="noopener"
+    >html 字元
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></p>
+<hr>
+<h2 id="-書籤連結">🔖 書籤連結</h2>
+<p>手機端會太擁擠，所以我讓圖片在手機端隱藏，img的地方加上<code>class=&quot;hide-on-mobile&quot;</code>，<code>class=&quot;hide-on-mobile&quot;</code> 寫在 style 裡面</p>
+<blockquote>
+<div style="text-align:center">md 引入格式：&ensp; &#123;&#123;&lt;link-card name="" desc="" link="" img=""&gt;&#125;&#125;</div>  
+</blockquote>
+<ul>
+<li>shortcode html 程式碼：<br>
+<a class="link" href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html"  target="_blank" rel="noopener"
+    >https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></li>
+<li>樣式 scss 程式碼：<br>
+<a class="link" href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss"  target="_blank" rel="noopener"
+    >https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></li>
+</ul>
+<h3 id="效果-書籤連結">效果 (書籤連結)</h3>
+<p>&ldquo;shortcode html&rdquo; 連結做成書籤：</p>
+
+
+
+
+
+
+
+<style>
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+</style>
+
+<a href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html" class="card-container" target="_blank">
+    <div class="card-content">
+        <n>link-card.html</n>
+        <p>⋙ shortcode html</p>
+        <u>https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-html</u>
+    </div>
+    
+        <img src="http://ncloud.penli.quest/s/img/download/img.png" alt="link-card.html" class="hide-on-mobile">
+    
+</a>
+
+<p>&ldquo;樣式 scss&rdquo; 連結做成書籤：</p>
+
+
+
+
+
+
+
+<style>
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+</style>
+
+<a href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss" class="card-container" target="_blank">
+    <div class="card-content">
+        <n>link-card-var.scss</n>
+        <p>⋙ 樣式 scss</p>
+        <u>https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-link-card-var-scss</u>
+    </div>
+    
+        <img src="http://ncloud.penli.quest/s/img/download/img.png" alt="link-card-var.scss" class="hide-on-mobile">
+    
+</a>
+
+<hr>
+<h2 id="-gist-嵌入加上標題">👩🏻‍💻 gist 嵌入加上標題</h2>
+<p>原始的 gist 嵌入的樣式不喜歡，還有最底下那條 &ldquo;hosted with ❤️ by GitHub&rdquo;，我是選擇用自己的樣式保留著，畢竟是 github 的服務，直接刪掉總感覺不太恰當</p>
+<p>再用一個方框加上標題，可以自訂和gist檔案名稱不同的標題，標題也可以連結到gist的頁面</p>
+<p>penyt 是我的 github 帳號，你要換成自己的</p>
+<blockquote>
+<div style="text-align:center">md 引入格式：&ensp; &#123;&#123;&lt;gist-title "title" penyt ID (檔名)&gt;&#125;&#125;</div>
+</blockquote>
+<ul>
+<li>shortcode html 程式碼：<br>
+<a class="link" href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html"  target="_blank" rel="noopener"
+    >https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-title-html
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></li>
+<li>樣式 scss 程式碼：<br>
+<a class="link" href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss"  target="_blank" rel="noopener"
+    >https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa#file-gist-scss
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></li>
+</ul>
+<h3 id="效果-gist-標題">效果 (gist 標題)</h3>
+<p>
+
+
+
+<div>
+    <p class="gist-title"> <a href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa" target="_blank"> gist-title.html </a> </p>
+    <script src="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist-title.html"></script>
+</div>
+
+<style>
+    script {
+        margin-top: 0;
+    }
+</style>
+
+
+
+
+<div>
+    <p class="gist-title"> <a href="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa" target="_blank"> gist.scss </a> </p>
+    <script src="https://gist.github.com/penyt/6e19f98476ffa5d737d8f8b268dcd0fa.js?file=gist.scss"></script>
+</div>
+
+<style>
+    script {
+        margin-top: 0;
+    }
+</style></p>
+<hr>
+<h2 id="文章加密">🔐文章加密</h2>
+<ul>
+<li>
+<p>shortcode html：</p>
+</li>
+<li>
+<p>樣式 scss：</p>
+</li>
+</ul>
+<h3 id="效果-文章加密">效果 (文章加密)</h3>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%E5%A5%BD%E9%9B%A3/">好難</a>
+        
+            <a href="/tags/%E8%87%AA%E5%B7%B1%E7%9A%84%E7%AD%86%E8%A8%98%E4%B9%9F%E6%94%BE/">自己的筆記也放</a>
+        
+            <a href="/tags/%E4%B8%8D%E7%84%B6%E8%87%AA%E5%B7%B1%E6%AF%8F%E6%AC%A1%E9%83%BD%E8%A6%81%E6%9F%A5/">不然自己每次都要查</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <iframe 
+    class="LikeCoin" 
+    height="160" 
+    src="https://button.like.co/in/embed/ytpenpen/button?referrer=https%3a%2f%2fli.penli.quest%2fp%2fmy-shortcode%2f" 
+    width="300" 
+    frameborder=0
+></iframe>
+ 
+
+    
+
+<aside class="related-content--wrapper">
+    <h2 class="section-title">相關文章</h2>
+    <div class="related-content">
+        <div class="flex article-list--tile">
+            
+                
+<article class="">
+    <a href="/p/stack-toc/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">Hugo Stack 主題 -- 目錄 toc 設置更改</h2>
+        </div>
+    </a>
+</article>
+
+            
+                
+<article class="">
+    <a href="/p/hugo-docker-baseurl/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">關於用 docker 安裝 hugo 的 baseurl 問題</h2>
+        </div>
+    </a>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="penyt/li-penli-quest-comments"
+    data-repo-id="R_kgDOLnRQHw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLnRQH84CenE0"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('noborder_light');
+            } else {
+                setGiscusTheme('noborder_gray');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 Pen
+    </section>
+    
+    <section class="powerby">
+        
+            到這頁的屁股了:3 <br> 📬Email：lipen@penli.quest <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建立 <br />
+        主題 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.23.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 設計
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

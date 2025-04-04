@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Pages on 企鵝窩</title>
+        <link>https://li.penli.quest/page/</link>
+        <description>Recent content in Pages on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Thu, 21 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://li.penli.quest/page/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>贊助給動力</title>
+        <link>https://li.penli.quest/%E8%B4%8A%E5%8A%A9%E7%B5%A6%E5%8B%95%E5%8A%9B/</link>
+        <pubDate>Thu, 21 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/%E8%B4%8A%E5%8A%A9%E7%B5%A6%E5%8B%95%E5%8A%9B/</guid>
+        <description>&lt;p&gt;menu:
+main:
+weight: 999999
+params:
+icon: tag&lt;/p&gt;
+&lt;h2 id=&#34;連結&#34;&gt;連結&lt;/h2&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://p.ecpay.com.tw/65BE5F5&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://p.ecpay.com.tw/65BE5F5
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;qr&#34;&gt;QR&lt;/h2&gt;
+&lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;https://li.penli.quest/donateQRCode.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;QRCode&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>所有文章</title>
+        <link>https://li.penli.quest/archives/</link>
+        <pubDate>Sun, 10 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/archives/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>關於我</title>
+        <link>https://li.penli.quest/about/</link>
+        <pubDate>Sat, 09 Mar 2024 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/about/</guid>
+        <description>&lt;p&gt;我是企鵝，綽號小企&lt;br&gt;
+Pen 就是 PenLi 就是 penli&lt;/p&gt;
+&lt;p&gt;我的生命中有一隻很重要的小狐，謝謝她永遠支持我的一切，小企會一直愛小狐&lt;/p&gt;
+&lt;h1 id=&#34;網站介紹&#34;&gt;網站介紹&lt;/h1&gt;
+&lt;p&gt;這個網站是用 &lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;hugo-theme-stack
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; 建置的，hugo很讚，再次附上網址&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/CaiJimmy/hugo-theme-stack&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;https://github.com/CaiJimmy/hugo-theme-stack
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class=&#34;link&#34; href=&#34;https://github.com/gohugoio&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo的GitHub
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;架網站不說很簡單，但確實不難&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;h1 id=&#34;github&#34;&gt;GitHub&lt;/h1&gt;
+&lt;p&gt;附上我的GitHub，我會把一些網站上有或沒有的code或其他東西放上去&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://github.com/penyt&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;ytpen penyt GitHub&lt;/n&gt;
+        &lt;p&gt;⋙ my github with some east east&lt;/p&gt;
+        &lt;u&gt;https://github.com/penyt&lt;/u&gt;
+    &lt;/div&gt;
+    
+        &lt;img src=&#34;https://raw.githubusercontent.com/penyt/public-web/main/img/pengit.png&#34; alt=&#34;ytpen penyt GitHub&#34; class=&#34;hide-on-mobile&#34;&gt;
+    
+&lt;/a&gt;
+
+&lt;h1 id=&#34;gist-theme&#34;&gt;Gist Theme&lt;/h1&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://github.com/lonekorean/gist-syntax-themes/blob/master/README.md&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;GitHub Gist&lt;/n&gt;
+        &lt;p&gt;⋙ gist theme&lt;/p&gt;
+        &lt;u&gt;https://github.com/lonekorean/gist-syntax-themes/blob/master/README.md&lt;/u&gt;
+    &lt;/div&gt;
+    
+&lt;/a&gt;
+
+&lt;br&gt;
+&lt;br&gt;</description>
+        </item>
+        <item>
+        <title>連結</title>
+        <link>https://li.penli.quest/donate-and-links/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/donate-and-links/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>搜尋</title>
+        <link>https://li.penli.quest/search/</link>
+        <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/search/</guid>
+        <description></description>
+        </item>
+        
+    </channel>
+</rss>

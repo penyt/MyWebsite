@@ -1,0 +1,11 @@
+
+<!--內文toc-->
+{{ if (.Scratch.Get "TOCEnabled") }}
+<section class="toc toc--inline">
+    <p class="toc--title">{{ T "article.tableOfContents" }}</p>
+    <p class="toc--desc"> inline table of content only on mobile</p>
+    <div class="">
+        {{ .TableOfContents }}
+    </div>
+</section>
+{{ end }}

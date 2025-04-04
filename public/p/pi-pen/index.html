@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-tw" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式'>
+<title>使用 Node.js 製作的樹莓派溫度監控網頁應用</title>
+
+<link rel='canonical' href='https://li.penli.quest/p/pi-pen/'>
+
+<link rel="stylesheet" href="/scss/style.min.1a7af78c150fa8d788e11473c17cc4ce25f14f33cc32e62debcc18c436655df3.css"><meta property='og:title' content='使用 Node.js 製作的樹莓派溫度監控網頁應用'>
+<meta property='og:description' content='我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式'>
+<meta property='og:url' content='https://li.penli.quest/p/pi-pen/'>
+<meta property='og:site_name' content='企鵝窩'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pi' /><meta property='article:tag' content='raspberry pi' /><meta property='article:tag' content='樹莓派' /><meta property='article:tag' content='溫度監控' /><meta property='article:tag' content='pi-pen' /><meta property='article:tag' content='node.js' /><meta property='article:published_time' content='2025-01-14T16:22:16&#43;00:00'/><meta property='article:modified_time' content='2025-01-14T16:22:16&#43;00:00'/>
+<meta name="twitter:title" content="使用 Node.js 製作的樹莓派溫度監控網頁應用">
+<meta name="twitter:description" content="我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式">
+    <link rel="shortcut icon" href="https://myrr.penli.quest/favicon.ico" />
+<style>
+     
+    :root {
+        --article-font-family: "Noto Sans Traditional Chinese", var(--base-font-family);
+    }
+</style>
+
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap";
+    
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+    
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+
+<script defer src="https://umami.penli.quest/script.js" data-website-id="2f0ed1d6-56ff-4a08-8c53-0545504d81b4"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6PYV5BRF9Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-6PYV5BRF9Z');
+</script>
+    </head>
+    <body class="
+    article-page
+    ">
+
+        
+        <a class="back" href="javascript:scroll(0,0)"></a>
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended">
+
+        <button type="button" id="left-menu" aria-label="切換選單">
+            <span>
+                <span>選 單 sidebar</span>
+            </span>
+        </button>
+        <ol class="menu" id="lmenu">
+            
+            
+                
+                <li >
+                    <a href='/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                        
+                        <span>首頁</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/about/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                        
+                        <span>關於我</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/archives/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                        
+                        <span>所有文章</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/search/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                        
+                        <span>搜尋</span>
+                    </a>
+                </li>
+            
+                
+                <li >
+                    <a href='/donate-and-links/' >
+                        
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                        
+                        <span>連結</span>
+                    </a>
+                </li>
+            
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>夜晚模式</span>
+                </li>
+            
+
+        </ol>
+    
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目錄</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#使用方式">使用方式</a>
+      <ol>
+        <li><a href="#程式碼結構">程式碼結構</a></li>
+        <li><a href="#實際操作">實際操作</a></li>
+        <li><a href="#關於資料儲存">關於資料儲存</a></li>
+      </ol>
+    </li>
+    <li><a href="#如何在背景運行">如何在背景運行？</a></li>
+    <li><a href="#也可使用-vcgencmd-命令來獲取溫度">也可使用 vcgencmd 命令來獲取溫度</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E6%A8%B9%E8%8E%93%E6%B4%BE/" style="background-color: #D73359; color: #fff;">
+                樹莓派
+            </a>
+        
+            <a href="/categories/nodejs/" style="background-color: #142520; color: #fff;">
+                nodejs
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/pi-pen/">使用 Node.js 製作的樹莓派溫度監控網頁應用</a>
+        </h2>
+    
+        
+        <h3 class="article-subtitle">
+            我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式
+        </h3>
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 14, 2025</time>
+            </div>
+        
+
+        
+              
+              
+              
+            
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    
+                    閱讀時間：7 分鐘
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+
+
+<section class="toc toc--inline">
+    <p class="toc--title">目錄</p>
+    <p class="toc--desc"> inline table of content only on mobile</p>
+    <div class="">
+        <nav id="TableOfContents">
+  <ol>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#使用方式">使用方式</a>
+      <ol>
+        <li><a href="#程式碼結構">程式碼結構</a></li>
+        <li><a href="#實際操作">實際操作</a></li>
+        <li><a href="#關於資料儲存">關於資料儲存</a></li>
+      </ol>
+    </li>
+    <li><a href="#如何在背景運行">如何在背景運行？</a></li>
+    <li><a href="#也可使用-vcgencmd-命令來獲取溫度">也可使用 vcgencmd 命令來獲取溫度</a></li>
+  </ol>
+</nav>
+    </div>
+</section>
+
+
+    
+    
+    <h2 id="前言">前言</h2>
+<p>這是我所設計的一個簡易網頁應用，我叫他 pi-pen</p>
+<p>他是使用 node.js 作為後端，利用樹莓派內建的系統溫度文件或系統命令來獲取溫度</p>
+<p>接著透過 javascript 將數據實時每 5 秒更新並顯示在網頁上。</p>
+<h2 id="使用方式">使用方式</h2>
+<h3 id="程式碼結構">程式碼結構</h3>
+<p><strong>pi-pen</strong><br>
+├ <a class="link" href="https://github.com/penyt/pi-pen/blob/main/server.js"  target="_blank" rel="noopener"
+    >server.js
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a> <br>
+└ public<br>
+  └ <a class="link" href="https://github.com/penyt/pi-pen/blob/main/public/index.html"  target="_blank" rel="noopener"
+    >index.html
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a></p>
+
+ 
+ 
+ 
+ <div>
+     <p class="gist-title"> <a href="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a" target="_blank"> server.js </a> </p>
+     <script src="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=server.js"></script>
+ </div>
+ 
+ <style>
+     script {
+         margin-top: 0;
+     }
+ </style>
+
+ 
+ 
+ 
+ <div>
+     <p class="gist-title"> <a href="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a" target="_blank"> /public/index.html </a> </p>
+     <script src="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=index.html"></script>
+ </div>
+ 
+ <style>
+     script {
+         margin-top: 0;
+     }
+ </style>
+<h3 id="實際操作">實際操作</h3>
+<p>到你想要存放程式碼的位置，將我的 repo 複製下來 <code>git clone https://github.com/penyt/pi-pen.git</code></p>
+<p>或是複製 <code>server.js</code> 和 <code>/public/index.html</code> 這兩個主要檔案也可以。</p>
+<p>接著在 pi-pen 資料夾下，執行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">node server.js
+</span></span></code></pre></div><p>若樹莓派沒有 node，先 <a class="link" href="https://nodejs.org/zh-tw/download"  target="_blank" rel="noopener"
+    >看這個
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a> 安裝</p>
+<p>此時，在瀏覽器打上 <a class="link" href="http://localhost:5472"  target="_blank" rel="noopener"
+    >http://localhost:5472
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a> 就可以看到如下的畫面，這就是樹莓派的溫度</p>
+<img width="1120" alt="10min-bigscreen" src="https://github.com/user-attachments/assets/318254b7-477a-40db-9d22-3f013fb6c525" />
+<p>右邊有下拉選單可以視需求調整要觀察的時間</p>
+<h3 id="關於資料儲存">關於資料儲存</h3>
+<p>這個程式主要只是在快速有圖形介面觀察溫度，而不需要監測硬體，主要目的在於方便快速</p>
+<p>所以我用來存放資料的 json 檔案（程式執行後會自動生成在 pi-pen 資料夾裡），只會儲存 <strong>24小時</strong> 的數據！！！</p>
+<p>超過 24 小時的會自動被刪除，不要把它當成永久儲存溫度數據的地方喔</p>
+<h2 id="如何在背景運行">如何在背景運行？</h2>
+<p>我這邊使用 <a class="link" href="https://pm2.io/docs/runtime/guide/installation/"  target="_blank" rel="noopener"
+    >PM2
+    
+    
+    
+    <span style="white-space: nowrap;"><svg width=".7em"
+        height=".7em" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
+        <path d="m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z" fill="currentColor" />
+        <path d="M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z"
+            fill="currentColor">
+    </svg></span>
+    </a>，來達成背景運作的功效</p>
+<p>若樹莓派上沒有 PM2 那麼就用 npm 來安裝（官方的方式）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">npm install pm2 -g
+</span></span></code></pre></div><p>接著進入 <code>pi-pen</code> 資料夾（<code>cd /path/to/pi-pen</code>），執行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pm2 start server.js
+</span></span></code></pre></div><p>如果有更改 <code>server.js</code> 的檔名，這裡要記得改掉</p>
+<p>查看 PM2 狀態：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pm2 status
+</span></span></code></pre></div><p>查看日誌：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pm2 logs
+</span></span></code></pre></div><p>這時就算關閉終端，這個網頁應用還是會繼續運行</p>
+<h2 id="也可使用-vcgencmd-命令來獲取溫度">也可使用 vcgencmd 命令來獲取溫度</h2>
+<p>只需要將 <code>server.js</code> 替換成底下這個 <code>server-vcgencmd.js</code> 就可以了
+
+ 
+ 
+ 
+ <div>
+     <p class="gist-title"> <a href="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a" target="_blank"> server-vcgencmd.js </a> </p>
+     <script src="https://gist.github.com/penyt/95a0b903a236dcc9feac0b5c8663395a.js?file=server-vcgencmd.js"></script>
+ </div>
+ 
+ <style>
+     script {
+         margin-top: 0;
+     }
+ </style></p>
+<p>by Pen</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/pi/">pi</a>
+        
+            <a href="/tags/raspberry-pi/">raspberry pi</a>
+        
+            <a href="/tags/%E6%A8%B9%E8%8E%93%E6%B4%BE/">樹莓派</a>
+        
+            <a href="/tags/%E6%BA%AB%E5%BA%A6%E7%9B%A3%E6%8E%A7/">溫度監控</a>
+        
+            <a href="/tags/pi-pen/">pi-pen</a>
+        
+            <a href="/tags/node.js/">node.js</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <iframe 
+    class="LikeCoin" 
+    height="160" 
+    src="https://button.like.co/in/embed/ytpenpen/button?referrer=https%3a%2f%2fli.penli.quest%2fp%2fpi-pen%2f" 
+    width="300" 
+    frameborder=0
+></iframe>
+ 
+
+    
+
+     
+    
+        
+    <script
+    src="https://giscus.app/client.js"
+    data-repo="penyt/li-penli-quest-comments"
+    data-repo-id="R_kgDOLnRQHw"
+    data-category="Announcements"
+    data-category-id="DIC_kwDOLnRQH84CenE0"
+    data-mapping="title"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="noborder_light"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+></script>
+<script>
+    function setGiscusTheme(theme) {
+        let giscus = document.querySelector("iframe.giscus-frame");
+        if (giscus) {
+            giscus.contentWindow.postMessage(
+                {
+                    giscus: {
+                        setConfig: {
+                            theme: theme,
+                        },
+                    },
+                },
+                "https://giscus.app"
+            );
+        }
+    }
+
+    (function () {
+        addEventListener("message", (e) => {
+            if (event.origin !== "https://giscus.app") return;
+            handler();
+        });
+        window.addEventListener("onColorSchemeChange", handler);
+
+        function handler() {
+            if (document.documentElement.dataset.scheme === "light") {
+                setGiscusTheme('noborder_light');
+            } else {
+                setGiscusTheme('noborder_gray');
+            }
+        }
+    })();
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2024 - 
+        
+        2025 Pen
+    </section>
+    
+    <section class="powerby">
+        
+            到這頁的屁股了:3 <br> 📬Email：lipen@penli.quest <br> <br/>
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 建立 <br />
+        主題 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.23.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 設計
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

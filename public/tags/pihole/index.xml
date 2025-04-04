@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>pihole on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/pihole/</link>
+        <description>Recent content in pihole on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Sun, 07 Jul 2024 15:30:40 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/pihole/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Pihole 設置 Wildcard Dns</title>
+        <link>https://li.penli.quest/p/pi-wildcard-dns/</link>
+        <pubDate>Sun, 07 Jul 2024 15:30:40 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/pi-wildcard-dns/</guid>
+        <description>&lt;h2 id=&#34;介紹-wildcard-dns&#34;&gt;介紹 Wildcard DNS&lt;/h2&gt;
+&lt;p&gt;甚麼是 Wildcard DNS??&lt;/p&gt;
+&lt;p&gt;要讓 &lt;code&gt;whatever.hi.my.domain&lt;/code&gt; 、
+&lt;code&gt;whenever.hi.my.domain&lt;/code&gt; 、
+&lt;code&gt;whoever.hi.my.domain&lt;/code&gt; 全部指向 54.87.87.87 IP 位址&lt;/p&gt;
+&lt;p&gt;不用設置三個 DNS 紀錄，設置一個就好了&lt;/p&gt;
+&lt;p&gt;讓所有 &lt;code&gt;.hi.my.domain&lt;/code&gt; 的子域名全部指向同一個 54.87.87.87 IP 位址，這就是 Wildcard Dns&lt;/p&gt;
+&lt;h2 id=&#34;pihole-ui-設置出現錯誤&#34;&gt;PiHole UI 設置出現錯誤&lt;/h2&gt;
+&lt;p&gt;如果像是 bind 之類的 DNS，可能只要直接設置 A 紀錄：&lt;code&gt;*.hi.my.domain&lt;/code&gt; =&amp;gt; 54.87.87.87，就可以了&lt;/p&gt;
+&lt;p&gt;但是如果用 pihole 的 local DNS 的話，用 UI 介面是沒有辦法設置的，如果你像底下這樣輸入，就會顯示錯誤訊息&lt;br&gt;
+&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
+&lt;img src=&#34;https://myrr.penli.quest/pihole-wildcard-dns/pidns.webp&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;錯誤訊息&#34;
+	
+	
+	style=&#34;max-height: 700px;&#34;
+&gt;
+&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;但我們可以去修改 pihole 的配置文件就可以做到了&lt;/p&gt;
+&lt;h2 id=&#34;更改-pihole-配置文件&#34;&gt;更改 PiHole 配置文件&lt;/h2&gt;
+&lt;p&gt;首先進入 dnsmasq.d 的資料夾，然後新建立一個 XX-wildcard.conf 的檔案&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;nb&#34;&gt;cd&lt;/span&gt; /etc/dnsmasq.d/
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo nano 05-wildcard.conf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在這個檔案輸入：
+
+ 
+ 
+ 
+ &lt;div&gt;
+     &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/ed7763430df29eb1475f398c75dd58c5&#34; target=&#34;_blank&#34;&gt; /etc/dnsmasq.d/05-wildcard.conf &lt;/a&gt; &lt;/p&gt;
+     &lt;script src=&#34;https://gist.github.com/penyt/ed7763430df29eb1475f398c75dd58c5.js?file=05-wildcard.conf&#34;&gt;&lt;/script&gt;
+ &lt;/div&gt;
+ 
+ &lt;style&gt;
+     script {
+         margin-top: 0;
+     }
+ &lt;/style&gt;
+之後保存退出 (記得把域名和 IP 改成你要的)&lt;/p&gt;
+&lt;p&gt;然後讓 pihole 重新抓你的配置檔&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;service pihole-FTL restart
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;這樣其實就完成了，要確認的話用 nslookup，他就會顯示你設定的 IP 了 (當然你 nslookup 的環境要使用 pihole 的 dns，不然怎麼 nslookup 都看不到喔)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nslookup whatever.hi.my.domain
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nslookup whenever.hi.my.domain
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;nslookup whoever.hi.my.domain
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

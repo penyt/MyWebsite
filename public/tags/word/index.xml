@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>word on 企鵝窩</title>
+        <link>https://li.penli.quest/tags/word/</link>
+        <description>Recent content in word on 企鵝窩</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-tw</language>
+        <copyright>Pen</copyright>
+        <lastBuildDate>Fri, 04 Oct 2024 13:37:54 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/word/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Word 追蹤修訂一次改為實際文字顏色</title>
+        <link>https://li.penli.quest/p/word-track-revision/</link>
+        <pubDate>Fri, 04 Oct 2024 13:37:54 +0000</pubDate>
+        
+        <guid>https://li.penli.quest/p/word-track-revision/</guid>
+        <description>&lt;p&gt;最近用 word 的追蹤修訂在改文件，但是要給別人的時候，別人卻說不會用追蹤修訂，也不想學&amp;hellip;&lt;/p&gt;
+&lt;p&gt;我是不想一個一個標註顏色、底線、刪除線啦 🙃🙃🙃&lt;/p&gt;
+&lt;p&gt;所以寫了這個 VBA 一次解決&lt;/p&gt;
+&lt;h2 id=&#34;情況&#34;&gt;情況&lt;/h2&gt;
+&lt;p&gt;情況分成兩種：&lt;br&gt;
+  第一種：只把插入的標註紅色+底線&lt;br&gt;
+  第二種：插入的部分變紅色文字+底線，刪除的變成藍色文字+刪除線&lt;/p&gt;
+&lt;h2 id=&#34;邏輯&#34;&gt;邏輯&lt;/h2&gt;
+&lt;p&gt;邏輯上來說很簡單：&lt;br&gt;
+  1.偵測修改的部分&lt;br&gt;
+  2.插入的部分直接先加上顏色和底線&lt;br&gt;
+  3.接受所有插入部分&lt;br&gt;
+  4.刪除的部分複製一份放在原本的詞句後面（因為刪除的實際上來說已經是不存在的了，只是因為追蹤修訂暫時保留）&lt;br&gt;
+  5.在複製的那一份加上顏色和刪除線&lt;br&gt;
+  &lt;strong&gt;6.接受所有刪除部分&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;最後一步稍微思考一下其實就不會弄錯&lt;/p&gt;
+&lt;h2 id=&#34;在-word-操作&#34;&gt;在 word 操作&lt;/h2&gt;
+&lt;p&gt;  第一步：打開 word，按 &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;F11&lt;/code&gt;&lt;br&gt;
+  第二步：工具列 「插入」+「模組」 （insert + module）&lt;br&gt;
+  第三步：底下這些程式碼挑適合的貼上&lt;br&gt;
+     （如果要儲存，右鍵這個專案，「匯出檔案」）&lt;br&gt;
+  第四步：關閉 VBA 視窗&lt;br&gt;
+  第五步：在 word，按 &lt;code&gt;Alt&lt;/code&gt; + &lt;code&gt;F8&lt;/code&gt;&lt;br&gt;
+  第六步：選擇 InsertRed 或 InsertRedDeleteBlue 或任何自己取的名字，點「執行」&lt;br&gt;
+  第七步：等他（追蹤修訂的數量決定需要的時間），完成&lt;/p&gt;
+&lt;p&gt;基本上是不會有錯誤啦，但是也可以人工再檢查一下&lt;/p&gt;
+&lt;p&gt;
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/344101686d5ef5f4b13e62fb073e792d&#34; target=&#34;_blank&#34;&gt; 插入是紅色，刪除是藍色 &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/344101686d5ef5f4b13e62fb073e792d.js?file=redblue.bas&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;
+
+
+
+
+&lt;div&gt;
+    &lt;p class=&#34;gist-title&#34;&gt; &lt;a href=&#34;https://gist.github.com/penyt/344101686d5ef5f4b13e62fb073e792d&#34; target=&#34;_blank&#34;&gt; 只有插入是紅色 &lt;/a&gt; &lt;/p&gt;
+    &lt;script src=&#34;https://gist.github.com/penyt/344101686d5ef5f4b13e62fb073e792d.js?file=red.bas&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    script {
+        margin-top: 0;
+    }
+&lt;/style&gt;&lt;/p&gt;
+&lt;p&gt;by Pen&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>

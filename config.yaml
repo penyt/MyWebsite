@@ -1,0 +1,219 @@
+# https://github.com/CaiJimmy/hugo-theme-stack/blob/master/README.md
+# https://stack.jimmycai.com/guide/
+# https://github.com/CaiJimmy/hugo-theme-stack/blob/master/exampleSite/hugo.yaml
+
+baseURL: "${HUGO_BASEURL}"
+languageCode: zh-tw
+theme: hugo-theme-stack-original
+paginate: 7
+copyright: Pen
+# Theme i18n support
+DefaultContentLanguage: zh-tw
+# true if DefaultContentLanguage is [zh-cn ja ko]
+hasCJKLanguage: false
+
+languages:
+    zh-tw:
+        languageName: 中文
+        title: 企鵝窩
+        #權重越小越前面
+        weight: 1
+        params:
+            description: PenPenPen
+#    en:
+#        languageName: English
+#        title: Pen's Site
+#        weight: 2
+#        params:
+#            description: en
+
+services:
+    # Change it to your Disqus shortname before using
+    disqus:
+        shortname: #pencmt
+    # GA Tracking ID
+    googleAnalytics:
+        id:
+
+permalinks:
+    post: /p/:slug/
+    page: /:slug/
+
+params:
+    likerID: ytpenpen
+    #首頁顯示的內容
+    mainSections:
+        - post
+    # front matter 圖片
+    featuredImageField: image #featuredImageField
+    rssFullContent: true
+    #瀏覽器標籤頁上的圖片
+    favicon: https://myrr.penli.quest/favicon.ico #/favicon.ico # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+
+    footer:
+        #頁尾
+        since: 2024
+        customText: 到這頁的屁股了:3 <br> 📬Email：lipen@penli.quest <br> 
+
+    dateFormat:
+        published: Jan 02, 2006
+        lastUpdated: Jan 02, 2006 15:04 MST
+
+    sidebar:
+        emoji: 🦊
+        subtitle: |
+            企鵝不會飛
+            ⛸️存錢去南極看企鵝
+        avatar:
+            #頭貼
+            enabled: true
+            #圖片檔在本地
+            local: true
+            #assets資料夾
+            src: img/pengit.png
+
+    article:
+        math: false
+        toc: true
+#        readingTime: true
+        license:
+            enabled: false
+            default: Licensed under CC BY-NC-SA 4.0
+
+    # 評論區功能 remark42、vssue、waline、twikoo、cactus、giscus、cusdis
+    comments:
+        enabled: true
+        provider: giscus
+
+        disqusjs:
+            shortname: pencmt
+#            apiUrl:            apiKey:
+#            admin:            adminLabel:
+        utterances:
+            repo: penyt/penli-web-comments
+            issueTerm: title
+            label:
+        giscus:
+            repo: penyt/li-penli-quest-comments
+            repoID: R_kgDOLnRQHw
+            category: Announcements
+            categoryID: DIC_kwDOLnRQH84CenE0
+            mapping: 
+            lightTheme: noborder_light
+            darkTheme: noborder_gray
+            reactionsEnabled: 1
+            emitMetadata: 0
+
+    #右邊的東東
+    widgets:
+        homepage: #當在首頁的時候右邊的東東
+            - type: search
+            - type: archives
+              params:
+                  limit: 8
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 10
+        page: #在文章裡的時候右邊的東東
+            - type: toc
+
+    opengraph:
+        twitter:
+            # Your Twitter username
+            site:
+
+            # Available values: summary, summary_large_image
+            card: summary_large_image
+
+    defaultImage:
+        opengraph:
+            enabled: false
+            local: false
+            src:
+
+    colorScheme:
+        # Display toggle 是否允許切換顏色主題
+        toggle: true
+        # Available values: auto, light, dark
+        default: auto
+
+    imageProcessing:
+        cover:
+            enabled: true
+        content:
+            enabled: true
+
+### Custom menu
+### See 失效 https://docs.stack.jimmycai.com/configuration/custom-menu.html
+### To remove about, archive and search page menu item, remove `menu` field from their FrontMatter
+menu:
+    main:
+        - identifier: home
+          name: 首頁
+          url: /
+          weight: -100
+          params:
+              ### For demonstration purpose, the home link will be open in a new tab
+              newTab: false
+              icon: home
+
+    #小圖標連結
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/penyt/public-web.git
+          weight: 1
+          params:
+              icon: brand-github
+
+        - identifier: gist
+          name: Gist
+          url: https://gist.github.com/penyt
+          weight: 2
+          params:
+              icon: code
+
+        - identifier: youtube
+          name: Youtube
+          url: https://www.youtube.com/@yutingli36
+          weight: 3
+          params:
+              icon: link
+
+
+#關聯文章
+related:
+    includeNewer: true
+    threshold: 60
+    toLower: false
+    indices:
+        - name: tags
+          weight: 100
+        - name: categories
+          weight: 200
+
+markup:
+    goldmark:
+        renderer:
+            ## Set to true if you have HTML content inside Markdown
+            unsafe: true
+    renderHooks:
+      image:
+        enableDefault: true
+    #目錄toc設置
+    tableOfContents:
+        endLevel: 4
+        ordered: true
+        startLevel: 2
+    #和code的螢光有關的
+    highlight:
+        noClasses: false
+        codeFences: true
+        guessSyntax: true
+        lineNoStart: 1
+        lineNos: false
+        lineNumbersInTable: true
+        tabWidth: 4
