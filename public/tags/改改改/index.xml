@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>改改改 on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/%E6%94%B9%E6%94%B9%E6%94%B9/</link>
+        <link>http://localhost:1313/tags/%E6%94%B9%E6%94%B9%E6%94%B9/</link>
         <description>Recent content in 改改改 on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Sat, 23 Mar 2024 16:15:07 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E6%94%B9%E6%94%B9%E6%94%B9/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 23 Mar 2024 16:15:07 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E6%94%B9%E6%94%B9%E6%94%B9/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo Stack 主題 -- 目錄 toc 設置更改</title>
-        <link>https://li.penli.quest/p/stack-toc/</link>
+        <link>http://localhost:1313/p/stack-toc/</link>
         <pubDate>Sat, 23 Mar 2024 16:15:07 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/stack-toc/</guid>
+        <guid>http://localhost:1313/p/stack-toc/</guid>
         <description>&lt;h2 id=&#34;用戶體驗&#34;&gt;用戶體驗&lt;/h2&gt;
 &lt;p&gt;stack主題的toc在手機端並不顯示，但我自己覺得目錄蠻重要的&lt;/p&gt;
 &lt;p&gt;而且手機寬度縮短，長度就會變長，沒有目錄的話就要一直滑滑滑，體驗並不是很好&lt;/p&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>專利師 on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/%E5%B0%88%E5%88%A9%E5%B8%AB/</link>
+        <link>http://localhost:1313/tags/%E5%B0%88%E5%88%A9%E5%B8%AB/</link>
         <description>Recent content in 專利師 on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Wed, 23 Oct 2024 16:19:48 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E5%B0%88%E5%88%A9%E5%B8%AB/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Wed, 23 Oct 2024 16:19:48 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%B0%88%E5%88%A9%E5%B8%AB/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>113年專利師考試上榜心得</title>
-        <link>https://li.penli.quest/p/113%E5%B9%B4%E5%B0%88%E5%88%A9%E5%B8%AB%E8%80%83%E8%A9%A6%E4%B8%8A%E6%A6%9C%E5%BF%83%E5%BE%97/</link>
+        <link>http://localhost:1313/p/113%E5%B9%B4%E5%B0%88%E5%88%A9%E5%B8%AB%E8%80%83%E8%A9%A6%E4%B8%8A%E6%A6%9C%E5%BF%83%E5%BE%97/</link>
         <pubDate>Wed, 23 Oct 2024 16:19:48 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/113%E5%B9%B4%E5%B0%88%E5%88%A9%E5%B8%AB%E8%80%83%E8%A9%A6%E4%B8%8A%E6%A6%9C%E5%BF%83%E5%BE%97/</guid>
+        <guid>http://localhost:1313/p/113%E5%B9%B4%E5%B0%88%E5%88%A9%E5%B8%AB%E8%80%83%E8%A9%A6%E4%B8%8A%E6%A6%9C%E5%BF%83%E5%BE%97/</guid>
         <description>&lt;p&gt;🐧 背景：112化工學士&lt;/p&gt;
 &lt;h2 id=&#34;-前言&#34;&gt;🐧 前言&lt;/h2&gt;
 &lt;p&gt;10/16放榜一周過去，發文回饋社會🦊。第一次考的時候是大四剛畢業112年，從去年六月中準備到考試（約2個月），中途出了車禍，騎機車被無良小黃撞：）&lt;br&gt;
@@ -23,60 +23,60 @@
 &lt;p&gt;第一次 2 個月，第二次 3.5 個月，兩次考試中間在事務所打雜&lt;/p&gt;
 &lt;h2 id=&#34;-成績&#34;&gt;🐧 成績&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;科目&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;112年第一次考試&lt;/th&gt;
-&lt;th style=&#34;text-align:center&#34;&gt;113年第二次考試 (上榜)&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;專利法規&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;47(申21/測26)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;71(申37/測34)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;行政救濟&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;55(申29/測26)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;58(申36/測22)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;普物普化&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;78&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;72&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;審查基準&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;60(申38/測22)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;65(申35/測30)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;專業英文&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;55(申19/測36)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;61(申13/測48)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;物理化學&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;9&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;X&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;工業設計&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;X&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;61&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;代理實務&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;40&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;65&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;b&gt;平均&lt;/b&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;b&gt;49.1428&lt;/b&gt;&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;b&gt;64.7142&lt;/b&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;科目&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;112年第一次考試&lt;/th&gt;
+          &lt;th style=&#34;text-align: center&#34;&gt;113年第二次考試 (上榜)&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;專利法規&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;47(申21/測26)&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;71(申37/測34)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;行政救濟&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;55(申29/測26)&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;58(申36/測22)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;普物普化&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;78&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;72&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;審查基準&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;60(申38/測22)&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;65(申35/測30)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;專業英文&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;55(申19/測36)&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;61(申13/測48)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;物理化學&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;9&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;X&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;工業設計&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;X&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;61&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;代理實務&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;40&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;65&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;b&gt;平均&lt;/b&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;b&gt;49.1428&lt;/b&gt;&lt;/td&gt;
+          &lt;td style=&#34;text-align: center&#34;&gt;&lt;b&gt;64.7142&lt;/b&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h2 id=&#34;-準備用書評價&#34;&gt;🐧 準備用書、評價&lt;/h2&gt;
 &lt;ol&gt;

@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>追蹤修訂 on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/%E8%BF%BD%E8%B9%A4%E4%BF%AE%E8%A8%82/</link>
+        <link>http://localhost:1313/tags/%E8%BF%BD%E8%B9%A4%E4%BF%AE%E8%A8%82/</link>
         <description>Recent content in 追蹤修訂 on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Fri, 04 Oct 2024 13:37:54 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E8%BF%BD%E8%B9%A4%E4%BF%AE%E8%A8%82/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 04 Oct 2024 13:37:54 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%BF%BD%E8%B9%A4%E4%BF%AE%E8%A8%82/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Word 追蹤修訂一次改為實際文字顏色</title>
-        <link>https://li.penli.quest/p/word-track-revision/</link>
+        <link>http://localhost:1313/p/word-track-revision/</link>
         <pubDate>Fri, 04 Oct 2024 13:37:54 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/word-track-revision/</guid>
+        <guid>http://localhost:1313/p/word-track-revision/</guid>
         <description>&lt;p&gt;最近用 word 的追蹤修訂在改文件，但是要給別人的時候，別人卻說不會用追蹤修訂，也不想學&amp;hellip;&lt;/p&gt;
 &lt;p&gt;我是不想一個一個標註顏色、底線、刪除線啦 🙃🙃🙃&lt;/p&gt;
 &lt;p&gt;所以寫了這個 VBA 一次解決&lt;/p&gt;

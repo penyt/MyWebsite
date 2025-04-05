@@ -1,6 +1,6 @@
 (() => {
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/gallery.ts
-  var StackGallery = class {
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/gallery.ts
+  var StackGallery = class _StackGallery {
     galleryUID;
     items = [];
     constructor(container, galleryUID = 1) {
@@ -9,7 +9,7 @@
         return;
       }
       this.galleryUID = galleryUID;
-      StackGallery.createGallery(container);
+      _StackGallery.createGallery(container);
       this.loadItems(container);
       this.bindClick();
     }
@@ -35,14 +35,12 @@
       const images = container.querySelectorAll("img.gallery-image");
       for (const img of Array.from(images)) {
         const paragraph = img.closest("p");
-        if (!paragraph || !container.contains(paragraph))
-          continue;
+        if (!paragraph || !container.contains(paragraph)) continue;
         if (paragraph.textContent.trim() == "") {
           paragraph.classList.add("no-text");
         }
         let isNewLineImage = paragraph.classList.contains("no-text");
-        if (!isNewLineImage)
-          continue;
+        if (!isNewLineImage) continue;
         const hasLink = img.parentElement.tagName == "A";
         let el = img;
         const figure = document.createElement("figure");
@@ -75,14 +73,18 @@
         } else if (figure.previousElementSibling === currentGallery[currentGallery.length - 1]) {
           currentGallery.push(figure);
         } else if (currentGallery.length) {
-          StackGallery.wrap(currentGallery);
+          _StackGallery.wrap(currentGallery);
           currentGallery = [figure];
         }
       }
       if (currentGallery.length > 0) {
-        StackGallery.wrap(currentGallery);
+        _StackGallery.wrap(currentGallery);
       }
     }
+    /**
+     * Wrap adjacent figure tags with div.gallery
+     * @param figures 
+     */
     static wrap(figures) {
       const galleryContainer = document.createElement("div");
       galleryContainer.className = "gallery";
@@ -116,7 +118,7 @@
   };
   var gallery_default = StackGallery;
 
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/color.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/color.ts
   var colorsCache = {};
   if (localStorage.hasOwnProperty("StackColorsCache")) {
     try {
@@ -149,7 +151,7 @@
     return colorsCache[key];
   }
 
-  // ns-hugo:/src/assets/ts/menu.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/assets/ts/menu.ts
   var slideUp = (target, duration = 500) => {
     target.classList.add("transiting");
     target.style.transitionProperty = "height, margin, padding";
@@ -213,8 +215,7 @@
     const toggleMenu = document.getElementById("toggle-menu");
     if (toggleMenu) {
       toggleMenu.addEventListener("click", () => {
-        if (document.getElementById("main-menu").classList.contains("transiting"))
-          return;
+        if (document.getElementById("main-menu").classList.contains("transiting")) return;
         document.body.classList.toggle("show-menu");
         slideToggle(document.getElementById("main-menu"), 300);
         toggleMenu.classList.toggle("is-active");
@@ -223,8 +224,7 @@
     const leftMenu = document.getElementById("left-menu");
     if (leftMenu) {
       leftMenu.addEventListener("click", () => {
-        if (document.getElementById("lmenu").classList.contains("transiting"))
-          return;
+        if (document.getElementById("lmenu").classList.contains("transiting")) return;
         document.body.classList.toggle("show-left-menu");
         slideToggle(document.getElementById("lmenu"), 300);
         leftMenu.classList.toggle("is-left-active");
@@ -232,7 +232,7 @@
     }
   }
 
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/createElement.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/createElement.ts
   function createElement(tag, attrs, children) {
     var element = document.createElement(tag);
     for (let name in attrs) {
@@ -250,14 +250,16 @@
     for (let i = 2; i < arguments.length; i++) {
       let child = arguments[i];
       if (child) {
-        element.appendChild(child.nodeType == null ? document.createTextNode(child.toString()) : child);
+        element.appendChild(
+          child.nodeType == null ? document.createTextNode(child.toString()) : child
+        );
       }
     }
     return element;
   }
   var createElement_default = createElement;
 
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/colorScheme.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/colorScheme.ts
   var StackColorScheme = class {
     localStorageKey = "StackColorScheme";
     currentScheme;
@@ -307,10 +309,8 @@
     }
     getSavedScheme() {
       const savedScheme = localStorage.getItem(this.localStorageKey);
-      if (savedScheme == "light" || savedScheme == "dark" || savedScheme == "auto")
-        return savedScheme;
-      else
-        return "auto";
+      if (savedScheme == "light" || savedScheme == "dark" || savedScheme == "auto") return savedScheme;
+      else return "auto";
     }
     bindMatchMedia() {
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
@@ -325,7 +325,7 @@
   };
   var colorScheme_default = StackColorScheme;
 
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/scrollspy.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/scrollspy.ts
   function debounced(func) {
     let timeout;
     return () => {
@@ -422,7 +422,7 @@
     window.addEventListener("resize", debounced(resizeHandler));
   }
 
-  // ns-hugo:/src/themes/hugo-theme-stack-original/assets/ts/smoothAnchors.ts
+  // ns-hugo-imp:/Users/marupen/MyWebsite/themes/hugo-theme-stack-original/assets/ts/smoothAnchors.ts
   var anchorLinksQuery = "a[href]";
   function setupSmoothAnchors() {
     document.querySelectorAll(anchorLinksQuery).forEach((aElement) => {
@@ -456,8 +456,7 @@
       if (articleTile) {
         let observer = new IntersectionObserver(async (entries, observer2) => {
           entries.forEach((entry) => {
-            if (!entry.isIntersecting)
-              return;
+            if (!entry.isIntersecting) return;
             observer2.unobserve(entry.target);
             const articles = entry.target.querySelectorAll("article.has-image");
             articles.forEach(async (articles2) => {
@@ -480,8 +479,7 @@
         copyButton.classList.add("copyCodeButton");
         highlight.appendChild(copyButton);
         const codeBlock = highlight.querySelector("code[data-lang]");
-        if (!codeBlock)
-          return;
+        if (!codeBlock) return;
         copyButton.addEventListener("click", () => {
           navigator.clipboard.writeText(codeBlock.textContent).then(() => {
             copyButton.textContent = copiedText;

@@ -2,121 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on 企鵝窩</title>
-        <link>https://li.penli.quest/categories/</link>
+        <link>http://localhost:1313/categories/</link>
         <description>Recent content in Categories on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Tue, 14 Jan 2025 16:22:16 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Jan 2025 14:33:23 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>docker</title>
+        <link>http://localhost:1313/categories/docker/</link>
+        <pubDate>Thu, 16 Jan 2025 14:33:23 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/docker/</guid>
+        <description>&lt;img src="https://myrr.penli.quest/category/docker.webp" alt="Featured image of post docker" /&gt;</description>
+        </item>
+        <item>
+        <title>traefik</title>
+        <link>http://localhost:1313/categories/traefik/</link>
+        <pubDate>Thu, 16 Jan 2025 14:33:23 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/traefik/</guid>
+        <description></description>
+        </item>
+        <item>
+        <title>yml</title>
+        <link>http://localhost:1313/categories/yml/</link>
+        <pubDate>Thu, 16 Jan 2025 14:33:23 +0000</pubDate>
+        
+        <guid>http://localhost:1313/categories/yml/</guid>
+        <description>&lt;img src="https://myrr.penli.quest/category/yaml.webp" alt="Featured image of post yml" /&gt;</description>
+        </item>
+        <item>
         <title>nodejs</title>
-        <link>https://li.penli.quest/categories/nodejs/</link>
+        <link>http://localhost:1313/categories/nodejs/</link>
         <pubDate>Tue, 14 Jan 2025 16:22:16 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/nodejs/</guid>
+        <guid>http://localhost:1313/categories/nodejs/</guid>
         <description></description>
         </item>
         <item>
         <title>樹莓派</title>
-        <link>https://li.penli.quest/categories/%E6%A8%B9%E8%8E%93%E6%B4%BE/</link>
+        <link>http://localhost:1313/categories/%E6%A8%B9%E8%8E%93%E6%B4%BE/</link>
         <pubDate>Tue, 14 Jan 2025 16:22:16 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E6%A8%B9%E8%8E%93%E6%B4%BE/</guid>
+        <guid>http://localhost:1313/categories/%E6%A8%B9%E8%8E%93%E6%B4%BE/</guid>
         <description></description>
         </item>
         <item>
         <title>考試</title>
-        <link>https://li.penli.quest/categories/%E8%80%83%E8%A9%A6/</link>
+        <link>http://localhost:1313/categories/%E8%80%83%E8%A9%A6/</link>
         <pubDate>Wed, 23 Oct 2024 16:19:48 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E8%80%83%E8%A9%A6/</guid>
+        <guid>http://localhost:1313/categories/%E8%80%83%E8%A9%A6/</guid>
         <description></description>
         </item>
         <item>
         <title>專利</title>
-        <link>https://li.penli.quest/categories/%E5%B0%88%E5%88%A9/</link>
+        <link>http://localhost:1313/categories/%E5%B0%88%E5%88%A9/</link>
         <pubDate>Wed, 23 Oct 2024 16:19:48 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E5%B0%88%E5%88%A9/</guid>
+        <guid>http://localhost:1313/categories/%E5%B0%88%E5%88%A9/</guid>
         <description></description>
         </item>
         <item>
         <title>word</title>
-        <link>https://li.penli.quest/categories/word/</link>
+        <link>http://localhost:1313/categories/word/</link>
         <pubDate>Fri, 04 Oct 2024 13:37:54 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/word/</guid>
+        <guid>http://localhost:1313/categories/word/</guid>
         <description></description>
         </item>
         <item>
         <title>DNS</title>
-        <link>https://li.penli.quest/categories/dns/</link>
+        <link>http://localhost:1313/categories/dns/</link>
         <pubDate>Sun, 07 Jul 2024 15:30:40 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/dns/</guid>
+        <guid>http://localhost:1313/categories/dns/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/cloudflare.webp" alt="Featured image of post DNS" /&gt;</description>
         </item>
         <item>
         <title>📌置底</title>
-        <link>https://li.penli.quest/categories/%E7%BD%AE%E5%BA%95/</link>
+        <link>http://localhost:1313/categories/%E7%BD%AE%E5%BA%95/</link>
         <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E7%BD%AE%E5%BA%95/</guid>
+        <guid>http://localhost:1313/categories/%E7%BD%AE%E5%BA%95/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/anchor.webp" alt="Featured image of post 📌置底" /&gt;</description>
         </item>
         <item>
         <title>hugo</title>
-        <link>https://li.penli.quest/categories/hugo/</link>
+        <link>http://localhost:1313/categories/hugo/</link>
         <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/hugo/</guid>
+        <guid>http://localhost:1313/categories/hugo/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/hugo.webp" alt="Featured image of post hugo" /&gt;</description>
         </item>
         <item>
         <title>hugo stack</title>
-        <link>https://li.penli.quest/categories/hugo-stack/</link>
+        <link>http://localhost:1313/categories/hugo-stack/</link>
         <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/hugo-stack/</guid>
+        <guid>http://localhost:1313/categories/hugo-stack/</guid>
         <description></description>
         </item>
         <item>
-        <title>docker</title>
-        <link>https://li.penli.quest/categories/docker/</link>
-        <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
-        
-        <guid>https://li.penli.quest/categories/docker/</guid>
-        <description>&lt;img src="https://myrr.penli.quest/category/docker.webp" alt="Featured image of post docker" /&gt;</description>
-        </item>
-        <item>
-        <title>yml</title>
-        <link>https://li.penli.quest/categories/yml/</link>
-        <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
-        
-        <guid>https://li.penli.quest/categories/yml/</guid>
-        <description>&lt;img src="https://myrr.penli.quest/category/yaml.webp" alt="Featured image of post yml" /&gt;</description>
-        </item>
-        <item>
         <title>GCP</title>
-        <link>https://li.penli.quest/categories/gcp/</link>
+        <link>http://localhost:1313/categories/gcp/</link>
         <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/gcp/</guid>
+        <guid>http://localhost:1313/categories/gcp/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/gcp.webp" alt="Featured image of post GCP" /&gt;</description>
         </item>
         <item>
         <title>虛擬主機</title>
-        <link>https://li.penli.quest/categories/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/</link>
+        <link>http://localhost:1313/categories/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/</link>
         <pubDate>Fri, 22 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/</guid>
+        <guid>http://localhost:1313/categories/%E8%99%9B%E6%93%AC%E4%B8%BB%E6%A9%9F/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/vm.webp" alt="Featured image of post 虛擬主機" /&gt;</description>
         </item>
         <item>
         <title>📌置頂</title>
-        <link>https://li.penli.quest/categories/%E7%BD%AE%E9%A0%82/</link>
+        <link>http://localhost:1313/categories/%E7%BD%AE%E9%A0%82/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://li.penli.quest/categories/%E7%BD%AE%E9%A0%82/</guid>
+        <guid>http://localhost:1313/categories/%E7%BD%AE%E9%A0%82/</guid>
         <description>&lt;img src="https://myrr.penli.quest/category/top.webp" alt="Featured image of post 📌置頂" /&gt;</description>
         </item>
         

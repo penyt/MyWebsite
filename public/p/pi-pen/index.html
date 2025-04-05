@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="zh-tw" dir="ltr">
-    <head><meta charset='utf-8'>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式'>
 <title>使用 Node.js 製作的樹莓派溫度監控網頁應用</title>
 
-<link rel='canonical' href='https://li.penli.quest/p/pi-pen/'>
+<link rel='canonical' href='http://localhost:1313/p/pi-pen/'>
 
 <link rel="stylesheet" href="/scss/style.min.1a7af78c150fa8d788e11473c17cc4ce25f14f33cc32e62debcc18c436655df3.css"><meta property='og:title' content='使用 Node.js 製作的樹莓派溫度監控網頁應用'>
 <meta property='og:description' content='我叫他 pi-pen，一個簡易快速的樹莓派溫度監控程式'>
-<meta property='og:url' content='https://li.penli.quest/p/pi-pen/'>
+<meta property='og:url' content='http://localhost:1313/p/pi-pen/'>
 <meta property='og:site_name' content='企鵝窩'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='pi' /><meta property='article:tag' content='raspberry pi' /><meta property='article:tag' content='樹莓派' /><meta property='article:tag' content='溫度監控' /><meta property='article:tag' content='pi-pen' /><meta property='article:tag' content='node.js' /><meta property='article:published_time' content='2025-01-14T16:22:16&#43;00:00'/><meta property='article:modified_time' content='2025-01-14T16:22:16&#43;00:00'/>
 <meta name="twitter:title" content="使用 Node.js 製作的樹莓派溫度監控網頁應用">
@@ -316,7 +316,7 @@
 
                 <time class="article-time--reading">
                     
-                    閱讀時間：7 分鐘
+                    閱讀時間：8 分鐘
                 </time>
             </div>
         
@@ -361,6 +361,78 @@
 <p>這是我所設計的一個簡易網頁應用，我叫他 pi-pen</p>
 <p>他是使用 node.js 作為後端，利用樹莓派內建的系統溫度文件或系統命令來獲取溫度</p>
 <p>接著透過 javascript 將數據實時每 5 秒更新並顯示在網頁上。</p>
+
+
+
+
+
+
+
+<style>
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+</style>
+
+<a href="https://pi-pen.penli.quest" class="card-container" target="_blank">
+    <div class="card-content">
+        <n>DEMO</n>
+        <p>⋙ demo website</p>
+        <u>https://pi-pen.penli.quest</u>
+    </div>
+    
+</a>
+
 <h2 id="使用方式">使用方式</h2>
 <h3 id="程式碼結構">程式碼結構</h3>
 <p><strong>pi-pen</strong><br>
@@ -500,17 +572,17 @@
     
     <section class="article-tags">
         
-            <a href="/tags/pi/">pi</a>
+            <a href="/tags/pi/">Pi</a>
         
-            <a href="/tags/raspberry-pi/">raspberry pi</a>
+            <a href="/tags/raspberry-pi/">Raspberry Pi</a>
         
             <a href="/tags/%E6%A8%B9%E8%8E%93%E6%B4%BE/">樹莓派</a>
         
             <a href="/tags/%E6%BA%AB%E5%BA%A6%E7%9B%A3%E6%8E%A7/">溫度監控</a>
         
-            <a href="/tags/pi-pen/">pi-pen</a>
+            <a href="/tags/pi-pen/">Pi-Pen</a>
         
-            <a href="/tags/node.js/">node.js</a>
+            <a href="/tags/node.js/">Node.js</a>
         
     </section>
 
@@ -526,7 +598,7 @@
     <iframe 
     class="LikeCoin" 
     height="160" 
-    src="https://button.like.co/in/embed/ytpenpen/button?referrer=https%3a%2f%2fli.penli.quest%2fp%2fpi-pen%2f" 
+    src="https://button.like.co/in/embed/ytpenpen/button?referrer=http%3a%2f%2flocalhost%3a1313%2fp%2fpi-pen%2f" 
     width="300" 
     frameborder=0
 ></iframe>

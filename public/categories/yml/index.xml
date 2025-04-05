@@ -2,17 +2,238 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>yml on 企鵝窩</title>
-        <link>https://li.penli.quest/categories/yml/</link>
+        <link>http://localhost:1313/categories/yml/</link>
         <description>Recent content in yml on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Mon, 01 Apr 2024 09:53:20 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/yml/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 16 Jan 2025 14:33:23 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/yml/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>在 Docker Swarm 部署 traefik 以實現跨主機代理</title>
+        <link>http://localhost:1313/p/docker-swarm-traefik/</link>
+        <pubDate>Thu, 16 Jan 2025 14:33:23 +0000</pubDate>
+        
+        <guid>http://localhost:1313/p/docker-swarm-traefik/</guid>
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
+&lt;p&gt;如果你有多台主機，並且架設了 docker 服務，其實可以不用再每一台主機上都部署 traefik 來處理每個容器的反向代理和 TLS 證書&lt;/p&gt;
+&lt;p&gt;當然，如果在同一個區域網路下，可以簡單地使用 traefik 的動態配置文件做到&lt;/p&gt;
+&lt;p&gt;可是如果今天不在同一區域網路下呢？常見的情況就是在不同區域網路下的多台 VPS&lt;/p&gt;
+&lt;p&gt;又或者，就是想要使用 docker 的 traefik label 來設定中間件（middleware）呢？&lt;/p&gt;
+&lt;p&gt;畢竟如果想要添加 authentik、authelia 這類的授權頁面，或者使用 crowdsec，利用 traefik 的中間件非常方便設置&lt;/p&gt;
+&lt;p&gt;其實還有一個方法，那就是在 docker swarm 下部署容器，並利用 overlay network 來做到跨越多台 docker 主機的作用，也就是這篇文章的內容&lt;/p&gt;
+&lt;h2 id=&#34;-docker-swarm-的好處&#34;&gt;🐧 docker swarm 的好處&lt;/h2&gt;
+&lt;h3 id=&#34;i-需求少&#34;&gt;I. 需求少&lt;/h3&gt;
+&lt;p&gt;如果你的機器沒有公共 IP（public IP），像是宿舍或公寓裡自架的伺服器，你未必會有最上游 NAT 的權限來設置端口轉發（port fowarding），那麼在這台主機上所設置的服務，便會無法暴露到外網&lt;/p&gt;
+&lt;p&gt;而若使用 docker swarm，便只需要在一台機器上部署 traefik 進行反向代理，就可以把你家裡伺服器上的服務或網站暴露到外網&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;center&gt;好處就是：只需要有一個公共 IP、只需要部署一個 traefik&lt;/center&gt;&lt;/strong&gt;&lt;br&gt;
+&lt;br&gt;
+且 docker swarm 是 docker 內建的功能，在完整安裝 docker engine 的時候就存在了，也不會佔用很多資源&lt;/p&gt;
+&lt;h3 id=&#34;ii-容易設置&#34;&gt;II. 容易設置&lt;/h3&gt;
+&lt;p&gt;使用 docker swarm 只需要簡單修改一下 docker 的 &amp;ldquo;labels&amp;rdquo; 區塊，和部署應用程式時的 docker 命令，就可以完成了&lt;/p&gt;
+&lt;h2 id=&#34;-操作方法&#34;&gt;🐧 操作方法&lt;/h2&gt;
+&lt;h3 id=&#34;前提&#34;&gt;前提&lt;/h3&gt;
+&lt;p&gt;&lt;font color=#FF0000&gt; host1 &lt;/font&gt; :  「擁有」公共 IP，並且 traefik 將部署在這裡&lt;br&gt;
+&lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; :  「沒有」公共 IP，其他的 app 會部署在這裡&lt;/p&gt;
+&lt;h3 id=&#34;第一步初始化-docker-swarm&#34;&gt;第一步，初始化 docker swarm&lt;/h3&gt;
+&lt;p&gt;在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 執行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker swarm init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;他會輸出像這樣的內容，但這是設置 worker 用的token：&lt;br&gt;
+&lt;code&gt;docker swarm join --token THISIS-7-89456123789aworker456987token....... IP_ADDR:2377&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;另外還會有一行，這行才是我們需要使用的：&lt;br&gt;
+&lt;code&gt;To add a manager to this swarm, run &#39;docker swarm join-token manager&#39; and follow the instructions.&lt;/code&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;所以接著，繼續在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 執行:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker swarm join-token manager
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;他會輸出像這樣的內容，這是設置 &lt;strong&gt;manager&lt;/strong&gt; 用的token：&lt;br&gt;
+&lt;code&gt;docker swarm join --token MAGENA-7-89456123789r456987token....... IP_ADDR:2377&lt;/code&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第二步將-host2-設置成-manager-非-worker因為-worker-無法自行部署-app-&#34;&gt;第二步，將 host2 設置成 manager （非 worker，因為 worker 無法自行部署 app ）&lt;/h3&gt;
+&lt;p&gt;切換到 &lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; 後，執行 &lt;strong&gt;MANAGER&lt;/strong&gt; 的設置命令&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;（記得複製你自己的）docker swarm join --token MAGENA-7-8943789r487token....... IP_ADDR:2377
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;接著，執行這個命令來檢查節點的狀態&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker node ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;應該會輸出像這樣的內容:&lt;/p&gt;
+&lt;blockquote&gt;
+ID                            &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+HOSTNAME                      &amp;emsp;&amp;emsp;
+STATUS    &amp;emsp;&amp;emsp;
+AVAILABILITY   &amp;emsp;&amp;emsp;&amp;emsp;
+MANAGER STATUS   &amp;emsp;&amp;emsp;&amp;emsp;
+ENGINE VERSION    
+&lt;p&gt;idofhostt2       
+host2         
+Ready        
+Active               
+Reachable               
+27.3.1&lt;/p&gt;
+&lt;p&gt;idofhostt1 *    
+host1       
+Ready        
+Active               
+Leader                  
+27.3.1&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;現在，我們就成功透過 docker swarm 來連接兩台跨網路的裝置了！&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第三步新增-traefik-的-docker-composeyml-和其他配置文件-1&#34;&gt;第三步，新增 traefik 的 docker-compose.yml 和其他配置文件 &lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/h3&gt;
+&lt;p&gt;在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 新增如下方的資料夾和檔案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新增資料夾 : &lt;code&gt;mkdir traefik&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;進入資料夾 : &lt;code&gt;cd traefik&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增檔案 : &lt;code&gt;touch traefik.yml config.yml acme.json docker-compose.yml&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;設置 acme 的權限 : &lt;code&gt;chmod 600 acme.json&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;traefik&lt;/strong&gt;&lt;br&gt;
+├ docker-compose.yml&lt;br&gt;
+├ traefik.yml&lt;br&gt;
+├ config.yml&lt;br&gt;
+└ acme.json&lt;/p&gt;
+&lt;p&gt;編輯 &lt;a class=&#34;link&#34; href=&#34;https://github.com/penyt/traefik-docker-swarm/blob/main/traefik/docker-compose.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;docker-compose.yml
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; &lt;code&gt;nano docker-compose.yml&lt;/code&gt;，把連結裡的內容貼上;&lt;/p&gt;
+&lt;p&gt;編輯 &lt;a class=&#34;link&#34; href=&#34;https://github.com/penyt/traefik-docker-swarm/blob/main/traefik/traefik.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;traefik.yml
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; &lt;code&gt;nano traefik.yml&lt;/code&gt;，把連結裡的內容貼上&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;(此步驟非必要，但強烈建議) 加上哈希密碼&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;sudo apt-get install apache2-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;將「username」和「yourpassword」設置成你自己的用戶名和密碼&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;htpasswd -nb username yourpassword
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;命令執行後，會出現像這樣的一串：&lt;code&gt;username:$apr1$8VzK7EwL$4Z9T.HqxGkJpAqVnqp4Ol1&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;把所有的 &lt;code&gt;$&lt;/code&gt; 改成 &lt;code&gt;$$&lt;/code&gt; (以避免 docker compose 會把單個&lt;code&gt;$&lt;/code&gt;譯為環境變數)&lt;/p&gt;
+&lt;p&gt;接著，把 docker-compose.yml 裡面的 &lt;code&gt;user:hashed_password&lt;/code&gt; 改成剛剛出現的那一串&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第四步部署-traefik&#34;&gt;第四步，部署 traefik&lt;/h3&gt;
+&lt;p&gt;在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 執行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker stack deploy -c docker-compose.yml traefik
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或使用任何你喜歡的名稱 &lt;code&gt;docker stack deploy -c docker-compose.yml traefik_stack_name&lt;/code&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 和 &lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; 檢查&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker service ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;輸出如下 :&lt;/p&gt;
+&lt;blockquote&gt;
+ID             &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+NAME              &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+MODE         &amp;emsp;&amp;emsp;
+REPLICAS   &amp;emsp;&amp;emsp;
+IMAGE                  &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+PORTS  
+&lt;p&gt;rtafeiksid       
+traefik_traefik     
+replicated    
+1/1            
+traefik:latest&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第五步新增-whoami-的-docker-composeyml&#34;&gt;第五步，新增 whoami 的 docker-compose.yml&lt;/h3&gt;
+&lt;p&gt;切換到 &lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; 新增如下方的資料夾和檔案&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新增資料夾 : &lt;code&gt;mkdir whoami&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;進入資料夾 : &lt;code&gt;cd whoami&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增檔案 : &lt;code&gt;touch docker-compose.yml&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;whoami&lt;/strong&gt;&lt;br&gt;
+└ docker-compose.yml&lt;/p&gt;
+&lt;p&gt;編輯 &lt;a class=&#34;link&#34; href=&#34;https://github.com/penyt/traefik-docker-swarm/blob/main/whoami/docker-compose.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;docker-compose.yml
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt; &lt;code&gt;nano docker-compose.yml&lt;/code&gt;，把連結裡的內容貼上&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第六步部署-apps-whoami&#34;&gt;第六步，部署 apps (whoami)&lt;/h3&gt;
+&lt;p&gt;在 &lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; 執行：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker stack deploy -c docker-compose.yml whoami
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或使用任何你喜歡的名稱 &lt;code&gt;docker stack deploy -c docker-compose.yml whoami_stack_name&lt;/code&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;在 &lt;font color=#FF0000&gt; host1 &lt;/font&gt; 和 &lt;font color=#3FB6F5&gt; host2 &lt;/font&gt; 檢查&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;docker service ls
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;輸出如下 :&lt;/p&gt;
+&lt;blockquote&gt;
+ID             &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+NAME              &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+MODE         &amp;emsp;&amp;emsp;
+REPLICAS   &amp;emsp;&amp;emsp;
+IMAGE                  &amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;
+PORTS  
+&lt;p&gt;rtafeiksid       
+traefik_traefik       
+replicated    
+1/1            
+traefik:latest&lt;/p&gt;
+&lt;p&gt;whoidami     
+whoami2_whoami2     
+replicated    
+1/1            
+traefik/whoami:v1.10&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h3 id=&#34;第七步完成&#34;&gt;第七步，完成&lt;/h3&gt;
+&lt;p&gt;現在，應該可以透過你在 traefik 標籤裡設置的域名來訪問 traefik 的 dashboard 或是 whoami 的頁面了&lt;/p&gt;
+&lt;p&gt;若有出現任何錯誤，記得:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;確認你的 DNS 紀錄有將域名指向 &lt;font color=#FF0000&gt; host1 &lt;/font&gt;&lt;/li&gt;
+&lt;li&gt;檢查 traefik 的日誌 &lt;code&gt;docker service logs traefik_traefik&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;檢查 docker swarm 的 overlay network &lt;code&gt;docker network inspect proxy&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;br&gt;
+&lt;br&gt;
+by Pen
+&lt;div class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34;&gt;
+&lt;p&gt;traefik deployment reference: &lt;a class=&#34;link&#34; href=&#34;https://github.com/JamesTurland/JimsGarage/blob/main/Traefik/docker-compose.yml&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;JimsGarage
+    
+    
+    
+    &lt;span style=&#34;white-space: nowrap;&#34;&gt;&lt;svg width=&#34;.7em&#34;
+        height=&#34;.7em&#34; viewBox=&#34;0 0 21 21&#34; xmlns=&#34;http://www.w3.org/2000/svg&#34;&gt;
+        &lt;path d=&#34;m13 3l3.293 3.293l-7 7l1.414 1.414l7-7L21 11V3z&#34; fill=&#34;currentColor&#34; /&gt;
+        &lt;path d=&#34;M19 19H5V5h7l-2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2v-5l-2-2v7z&#34;
+            fill=&#34;currentColor&#34;&gt;
+    &lt;/svg&gt;&lt;/span&gt;
+    &lt;/a&gt;&amp;#160;&lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+        </item>
+        <item>
         <title>關於用 docker 安裝 hugo 的 baseurl 問題</title>
-        <link>https://li.penli.quest/p/hugo-docker-baseurl/</link>
+        <link>http://localhost:1313/p/hugo-docker-baseurl/</link>
         <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/hugo-docker-baseurl/</guid>
+        <guid>http://localhost:1313/p/hugo-docker-baseurl/</guid>
         <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
 &lt;p&gt;用docker架設hugo網站的人可能不多，不過寫下前陣子遇到的問題&lt;/p&gt;
 &lt;p&gt;在config檔案明明設置了baseurl，但是實際的permalink卻一直是https://localhost:1313&lt;/p&gt;

@@ -16,7 +16,7 @@
   function escapeRegExp(string) {
     return string.replace(/[.*+\-?^${}()|[\]\\]/g, "\\$&");
   }
-  var Search = class {
+  var Search = class _Search {
     data;
     form;
     input;
@@ -33,6 +33,15 @@
       this.bindQueryStringChange();
       this.bindSearchForm();
     }
+    /**
+     * Processes search matches
+     * @param str original text
+     * @param matches array of matches
+     * @param ellipsis whether to add ellipsis to the end of each match
+     * @param charLimit max length of preview string
+     * @param offset how many characters before and after the match to include in preview
+     * @returns preview string
+     */
     static processMatches(str, matches, ellipsis = true, charLimit = 140, offset = 20) {
       matches.sort((a, b) => {
         return a.start - b.start;
@@ -58,13 +67,11 @@
         charCount += end - item.start;
         i = j;
         lastIndex = end;
-        if (ellipsis && charCount > charLimit)
-          break;
+        if (ellipsis && charCount > charLimit) break;
       }
       if (lastIndex < str.length) {
         let end = str.length;
-        if (ellipsis)
-          end = Math.min(end, lastIndex + offset);
+        if (ellipsis) end = Math.min(end, lastIndex + offset);
         resultArray.push(`${replaceHTMLEnt(str.substring(lastIndex, end))}`);
         if (ellipsis && end != str.length) {
           resultArray.push(` [...]`);
@@ -100,16 +107,14 @@
             end: match.index + match[0].length
           });
         }
-        if (titleMatches.length > 0)
-          result.title = Search.processMatches(result.title, titleMatches, false);
+        if (titleMatches.length > 0) result.title = _Search.processMatches(result.title, titleMatches, false);
         if (contentMatches.length > 0) {
-          result.preview = Search.processMatches(result.content, contentMatches);
+          result.preview = _Search.processMatches(result.content, contentMatches);
         } else {
           result.preview = replaceHTMLEnt(result.content.substring(0, 140));
         }
         result.matchCount = titleMatches.length + contentMatches.length;
-        if (result.matchCount > 0)
-          results.push(result);
+        if (result.matchCount > 0) results.push(result);
       }
       return results.sort((a, b) => {
         return b.matchCount - a.matchCount;
@@ -120,7 +125,7 @@
       const results = await this.searchKeywords(keywords);
       this.clear();
       for (const item of results) {
-        this.list.append(Search.render(item));
+        this.list.append(_Search.render(item));
       }
       const endTime = performance.now();
       this.resultTitle.innerText = this.generateResultTitle(results.length, ((endTime - startTime) / 1e3).toPrecision(1));
@@ -144,13 +149,12 @@
       const eventHandler = (e) => {
         e.preventDefault();
         const keywords = this.input.value.trim();
-        Search.updateQueryString(keywords, true);
+        _Search.updateQueryString(keywords, true);
         if (keywords === "") {
           lastSearch = "";
           return this.clear();
         }
-        if (lastSearch === keywords)
-          return;
+        if (lastSearch === keywords) return;
         lastSearch = keywords;
         this.doSearch(keywords.split(" "));
       };
@@ -190,22 +194,7 @@
       }
     }
     static render(item) {
-      return /* @__PURE__ */ createElement("article", null, /* @__PURE__ */ createElement("a", {
-        href: item.permalink
-      }, /* @__PURE__ */ createElement("div", {
-        class: "article-details"
-      }, /* @__PURE__ */ createElement("h2", {
-        class: "article-title",
-        dangerouslySetInnerHTML: { __html: item.title }
-      }), /* @__PURE__ */ createElement("section", {
-        class: "article-preview",
-        dangerouslySetInnerHTML: { __html: item.preview }
-      })), item.image && /* @__PURE__ */ createElement("div", {
-        class: "article-image"
-      }, /* @__PURE__ */ createElement("img", {
-        src: item.image,
-        loading: "lazy"
-      }))));
+      return /* @__PURE__ */ createElement("article", null, /* @__PURE__ */ createElement("a", { href: item.permalink }, /* @__PURE__ */ createElement("div", { class: "article-details" }, /* @__PURE__ */ createElement("h2", { class: "article-title", dangerouslySetInnerHTML: { __html: item.title } }), /* @__PURE__ */ createElement("section", { class: "article-preview", dangerouslySetInnerHTML: { __html: item.preview } })), item.image && /* @__PURE__ */ createElement("div", { class: "article-image" }, /* @__PURE__ */ createElement("img", { src: item.image, loading: "lazy" }))));
     }
   };
   window.addEventListener("load", () => {

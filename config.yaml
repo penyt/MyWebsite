@@ -5,12 +5,15 @@
 baseURL: "https://migration.penli.quest/"
 languageCode: zh-tw
 theme: hugo-theme-stack-original
-paginate: 7
+# paginate: 7
 copyright: Pen
 # Theme i18n support
 DefaultContentLanguage: zh-tw
 # true if DefaultContentLanguage is [zh-cn ja ko]
 hasCJKLanguage: false
+
+pagination:
+  pagerSize: 10
 
 languages:
     zh-tw:

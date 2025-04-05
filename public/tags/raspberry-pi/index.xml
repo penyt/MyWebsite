@@ -1,22 +1,94 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>raspberry pi on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/raspberry-pi/</link>
-        <description>Recent content in raspberry pi on 企鵝窩</description>
+        <title>Raspberry Pi on 企鵝窩</title>
+        <link>http://localhost:1313/tags/raspberry-pi/</link>
+        <description>Recent content in Raspberry Pi on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Tue, 14 Jan 2025 16:22:16 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 14 Jan 2025 16:22:16 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用 Node.js 製作的樹莓派溫度監控網頁應用</title>
-        <link>https://li.penli.quest/p/pi-pen/</link>
+        <link>http://localhost:1313/p/pi-pen/</link>
         <pubDate>Tue, 14 Jan 2025 16:22:16 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/pi-pen/</guid>
+        <guid>http://localhost:1313/p/pi-pen/</guid>
         <description>&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
 &lt;p&gt;這是我所設計的一個簡易網頁應用，我叫他 pi-pen&lt;/p&gt;
 &lt;p&gt;他是使用 node.js 作為後端，利用樹莓派內建的系統溫度文件或系統命令來獲取溫度&lt;/p&gt;
 &lt;p&gt;接著透過 javascript 將數據實時每 5 秒更新並顯示在網頁上。&lt;/p&gt;
+
+
+
+
+
+
+
+&lt;style&gt;
+    .card-container {
+        background-color: var(--card-background);
+        border: 1px solid var(--table-border-color);
+        border-radius: 8px;
+        padding: 10px;
+        box-shadow: 0 0 5px var(--card-text-color-tertiary);
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: flex; 
+        overflow: hidden; 
+        height: var(--lc-height); 
+    }
+    .card-container:hover {
+        background-color: var(--card-background-selected);
+    }
+    .card-content {
+        display: flex; 
+        flex-direction: column;
+        flex: 1;  
+        padding-left: 20px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+    .card-content img {
+        height: calc(var(--lc-height) * 0.85);
+        width: auto; 
+        border-radius: 4px;
+        margin-left: auto;  
+        margin-right: 10px;  
+    }
+
+    .card-content n {
+        font-size: var(--lc-name-size);
+        margin: 0;
+        color: var(--lc-name-color);
+        font-weight: bold;
+    }
+    .card-content p {
+        margin: 0;
+        text-indent: var(--lc-desc-tab);
+        color: var(--lc-desc-color);
+    }
+    .card-content u {
+        font-size: var(--lc-url-size);
+        margin: 0;
+        color: var(--lc-url-color);
+    }
+    @media (max-width: 768px) {
+      .hide-on-mobile {
+          display: none;
+      }
+    }
+&lt;/style&gt;
+
+&lt;a href=&#34;https://pi-pen.penli.quest&#34; class=&#34;card-container&#34; target=&#34;_blank&#34;&gt;
+    &lt;div class=&#34;card-content&#34;&gt;
+        &lt;n&gt;DEMO&lt;/n&gt;
+        &lt;p&gt;⋙ demo website&lt;/p&gt;
+        &lt;u&gt;https://pi-pen.penli.quest&lt;/u&gt;
+    &lt;/div&gt;
+    
+&lt;/a&gt;
+
 &lt;h2 id=&#34;使用方式&#34;&gt;使用方式&lt;/h2&gt;
 &lt;h3 id=&#34;程式碼結構&#34;&gt;程式碼結構&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;pi-pen&lt;/strong&gt;&lt;br&gt;

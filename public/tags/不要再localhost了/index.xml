@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>不要再localhost了 on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/%E4%B8%8D%E8%A6%81%E5%86%8Dlocalhost%E4%BA%86/</link>
+        <link>http://localhost:1313/tags/%E4%B8%8D%E8%A6%81%E5%86%8Dlocalhost%E4%BA%86/</link>
         <description>Recent content in 不要再localhost了 on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Mon, 01 Apr 2024 09:53:20 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/%E4%B8%8D%E8%A6%81%E5%86%8Dlocalhost%E4%BA%86/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 01 Apr 2024 09:53:20 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/%E4%B8%8D%E8%A6%81%E5%86%8Dlocalhost%E4%BA%86/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>關於用 docker 安裝 hugo 的 baseurl 問題</title>
-        <link>https://li.penli.quest/p/hugo-docker-baseurl/</link>
+        <link>http://localhost:1313/p/hugo-docker-baseurl/</link>
         <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/hugo-docker-baseurl/</guid>
+        <guid>http://localhost:1313/p/hugo-docker-baseurl/</guid>
         <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
 &lt;p&gt;用docker架設hugo網站的人可能不多，不過寫下前陣子遇到的問題&lt;/p&gt;
 &lt;p&gt;在config檔案明明設置了baseurl，但是實際的permalink卻一直是https://localhost:1313&lt;/p&gt;

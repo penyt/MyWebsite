@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>pihole on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/pihole/</link>
-        <description>Recent content in pihole on 企鵝窩</description>
+        <title>Pihole on 企鵝窩</title>
+        <link>http://localhost:1313/tags/pihole/</link>
+        <description>Recent content in Pihole on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Sun, 07 Jul 2024 15:30:40 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/pihole/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sun, 07 Jul 2024 15:30:40 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/pihole/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Pihole 設置 Wildcard Dns</title>
-        <link>https://li.penli.quest/p/pi-wildcard-dns/</link>
+        <link>http://localhost:1313/p/pi-wildcard-dns/</link>
         <pubDate>Sun, 07 Jul 2024 15:30:40 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/pi-wildcard-dns/</guid>
+        <guid>http://localhost:1313/p/pi-wildcard-dns/</guid>
         <description>&lt;h2 id=&#34;介紹-wildcard-dns&#34;&gt;介紹 Wildcard DNS&lt;/h2&gt;
 &lt;p&gt;甚麼是 Wildcard DNS??&lt;/p&gt;
 &lt;p&gt;要讓 &lt;code&gt;whatever.hi.my.domain&lt;/code&gt; 、

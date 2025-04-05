@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>hugo on 企鵝窩</title>
-        <link>https://li.penli.quest/categories/hugo/</link>
+        <link>http://localhost:1313/categories/hugo/</link>
         <description>Recent content in hugo on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Tue, 02 Apr 2024 09:25:58 +0000</lastBuildDate><atom:link href="https://li.penli.quest/categories/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 02 Apr 2024 09:25:58 +0000</lastBuildDate><atom:link href="http://localhost:1313/categories/hugo/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Hugo Stack 主題 -- 目錄 toc 設置更改</title>
-        <link>https://li.penli.quest/p/stack-toc/</link>
+        <link>http://localhost:1313/p/stack-toc/</link>
         <pubDate>Sat, 23 Mar 2024 16:15:07 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/stack-toc/</guid>
+        <guid>http://localhost:1313/p/stack-toc/</guid>
         <description>&lt;h2 id=&#34;用戶體驗&#34;&gt;用戶體驗&lt;/h2&gt;
 &lt;p&gt;stack主題的toc在手機端並不顯示，但我自己覺得目錄蠻重要的&lt;/p&gt;
 &lt;p&gt;而且手機寬度縮短，長度就會變長，沒有目錄的話就要一直滑滑滑，體驗並不是很好&lt;/p&gt;
@@ -110,10 +110,10 @@
         </item>
         <item>
         <title>關於用 docker 安裝 hugo 的 baseurl 問題</title>
-        <link>https://li.penli.quest/p/hugo-docker-baseurl/</link>
+        <link>http://localhost:1313/p/hugo-docker-baseurl/</link>
         <pubDate>Mon, 01 Apr 2024 09:53:20 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/hugo-docker-baseurl/</guid>
+        <guid>http://localhost:1313/p/hugo-docker-baseurl/</guid>
         <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
 &lt;p&gt;用docker架設hugo網站的人可能不多，不過寫下前陣子遇到的問題&lt;/p&gt;
 &lt;p&gt;在config檔案明明設置了baseurl，但是實際的permalink卻一直是https://localhost:1313&lt;/p&gt;
@@ -172,10 +172,10 @@
         </item>
         <item>
         <title>Hugo Stack 主題 -- 我的 Shortcode</title>
-        <link>https://li.penli.quest/p/my-shortcode/</link>
+        <link>http://localhost:1313/p/my-shortcode/</link>
         <pubDate>Tue, 02 Apr 2024 09:25:58 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/my-shortcode/</guid>
+        <guid>http://localhost:1313/p/my-shortcode/</guid>
         <description>&lt;h2 id=&#34;-文字對齊&#34;&gt;📏 文字對齊&lt;/h2&gt;
 &lt;center&gt; &amp;lt;center&amp;gt; 置中了吧 &amp;lt;/center&amp;gt; &lt;/center&gt;
 &lt;center&gt; 置中了吧 &lt;/center&gt;
@@ -188,38 +188,38 @@
 &lt;hr&gt;
 &lt;h2 id=&#34;-html-跳脫字元&#34;&gt;🌀 html 跳脫字元&lt;/h2&gt;
 &lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;字元&lt;/th&gt;
-&lt;th&gt;編碼&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;lt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;&amp;gt;&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;{&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;#123;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;}&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;#125;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;大空格&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;小空格&lt;/td&gt;
-&lt;td&gt;&lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th&gt;字元&lt;/th&gt;
+          &lt;th&gt;編碼&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;lt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;&amp;gt;&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;{&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;#123;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;}&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;#125;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;大空格&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;emsp;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td&gt;小空格&lt;/td&gt;
+          &lt;td&gt;&lt;code&gt;&amp;amp;nbsp;&lt;/code&gt;&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.freeformatter.com/html-entities.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;html 字元

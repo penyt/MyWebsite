@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>readable 可讀性高的 on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/</link>
-        <description>Recent content in readable 可讀性高的 on 企鵝窩</description>
+        <title>Readable 可讀性高的 on 企鵝窩</title>
+        <link>http://localhost:1313/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/</link>
+        <description>Recent content in Readable 可讀性高的 on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Tue, 19 Mar 2024 08:52:50 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 19 Mar 2024 08:52:50 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/readable-%E5%8F%AF%E8%AE%80%E6%80%A7%E9%AB%98%E7%9A%84/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>docker ps 格式</title>
-        <link>https://li.penli.quest/p/docker-ps/</link>
+        <link>http://localhost:1313/p/docker-ps/</link>
         <pubDate>Tue, 19 Mar 2024 08:52:50 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/docker-ps/</guid>
+        <guid>http://localhost:1313/p/docker-ps/</guid>
         <description>&lt;h2 id=&#34;問題&#34;&gt;問題&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; 指令的輸出格式會很容易超出螢幕，不好閱讀 (這大家應該都知道不需要展示圖片了吧ㄎ)&lt;/p&gt;
 &lt;h2 id=&#34;官方文件&#34;&gt;官方文件&lt;/h2&gt;

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>penguin is cute on 企鵝窩</title>
-        <link>https://li.penli.quest/tags/penguin-is-cute/</link>
-        <description>Recent content in penguin is cute on 企鵝窩</description>
+        <title>Penguin Is Cute on 企鵝窩</title>
+        <link>http://localhost:1313/tags/penguin-is-cute/</link>
+        <description>Recent content in Penguin Is Cute on 企鵝窩</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-tw</language>
         <copyright>Pen</copyright>
-        <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://li.penli.quest/tags/penguin-is-cute/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Fri, 08 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/tags/penguin-is-cute/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>小企的大天地</title>
-        <link>https://li.penli.quest/p/big-sky-ground/</link>
+        <link>http://localhost:1313/p/big-sky-ground/</link>
         <pubDate>Fri, 08 Mar 2024 00:00:00 +0000</pubDate>
         
-        <guid>https://li.penli.quest/p/big-sky-ground/</guid>
-        <description>&lt;img src="https://li.penli.quest/p/big-sky-ground/cover.jpg" alt="Featured image of post 小企的大天地" /&gt;&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
+        <guid>http://localhost:1313/p/big-sky-ground/</guid>
+        <description>&lt;img src="http://localhost:1313/p/big-sky-ground/cover.jpg" alt="Featured image of post 小企的大天地" /&gt;&lt;h2 id=&#34;正文&#34;&gt;正文&lt;/h2&gt;
 &lt;p&gt;🐧&lt;br&gt;
 企鵝有一對翅膀&lt;br&gt;
 企鵝不會飛&lt;br&gt;
@@ -24,7 +24,7 @@
 &lt;p&gt;有沒有一種可能，企鵝其實會飛 &amp;mdash;penli&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
-&lt;img src=&#34;https://li.penli.quest/penguin.jpeg&#34;
+&lt;img src=&#34;http://localhost:1313/penguin.jpeg&#34;
 	
 	
 	
@@ -64,7 +64,6 @@
         margin-top: 0;
     }
 &lt;/style&gt;
-
 &lt;/div&gt;
 
 &lt;script&gt;
