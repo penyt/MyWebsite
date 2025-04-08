@@ -92,10 +92,10 @@ params:
             shortname: pencmt
 #            apiUrl:            apiKey:
 #            admin:            adminLabel:
-        utterances:
-            repo: penyt/penli-web-comments
-            issueTerm: title
-            label:
+#        utterances:
+#            repo: penyt/penli-web-comments
+#            issueTerm: title
+#            label:
         giscus:
             repo: penyt/li-penli-quest-comments
             repoID: R_kgDOLnRQHw
@@ -141,7 +141,7 @@ params:
         # Display toggle 是否允許切換顏色主題
         toggle: true
         # Available values: auto, light, dark
-        default: auto
+        default: dark
 
     imageProcessing:
         cover:
