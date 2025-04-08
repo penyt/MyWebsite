@@ -29,7 +29,7 @@ draft: false
 如果像是 bind 之類的 DNS，可能只要直接設置 A 紀錄：```*.hi.my.domain``` => 54.87.87.87，就可以了  
 
 但是如果用 pihole 的 local DNS 的話，用 UI 介面是沒有辦法設置的，如果你像底下這樣輸入，就會顯示錯誤訊息  
-![錯誤訊息](https://myrr.penli.quest/pihole-wildcard-dns/pidns.webp)  
+![錯誤訊息](https://myrr.penli.quest/content/pihole-wildcard-dns/pidns.webp)  
 
 但我們可以去修改 pihole 的配置文件就可以做到了  
 

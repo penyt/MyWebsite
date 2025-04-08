@@ -25,7 +25,7 @@ docker有給出 ```--format``` 的 [官方文件](https://docs.docker.com/config
 
 ## 輸出結果
 輸出結果是這樣的：  
-![輸出結果](https://myrr.penli.quest/docker-ps-img%2Fdockerps.webp)  
+![輸出結果](https://myrr.penli.quest/content/docker-ps-img%2Fdockerps.webp)  
 明顯好閱讀很多很多很多  
 
 ## Windterm快捷（我個人沒有再使用了）

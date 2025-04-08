@@ -797,7 +797,7 @@ by Pen
 &lt;p&gt;如果像是 bind 之類的 DNS，可能只要直接設置 A 紀錄：&lt;code&gt;*.hi.my.domain&lt;/code&gt; =&amp;gt; 54.87.87.87，就可以了&lt;/p&gt;
 &lt;p&gt;但是如果用 pihole 的 local DNS 的話，用 UI 介面是沒有辦法設置的，如果你像底下這樣輸入，就會顯示錯誤訊息&lt;br&gt;
 &lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
-&lt;img src=&#34;https://myrr.penli.quest/pihole-wildcard-dns/pidns.webp&#34;
+&lt;img src=&#34;https://myrr.penli.quest/content/pihole-wildcard-dns/pidns.webp&#34;
 	
 	
 	
@@ -1436,7 +1436,7 @@ by Pen
 &lt;h2 id=&#34;輸出結果&#34;&gt;輸出結果&lt;/h2&gt;
 &lt;p&gt;輸出結果是這樣的：&lt;br&gt;
 &lt;div style=&#34;display: flex; justify-content: center;&#34;&gt;
-&lt;img src=&#34;https://myrr.penli.quest/docker-ps-img%2Fdockerps.webp&#34;
+&lt;img src=&#34;https://myrr.penli.quest/content/docker-ps-img%2Fdockerps.webp&#34;
 	
 	
 	
