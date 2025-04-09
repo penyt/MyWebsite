@@ -36,7 +36,7 @@ services:
         shortname: #pencmt
     # GA Tracking ID
     googleAnalytics:
-        id:
+        id: G-78LD2311J4
 
 permalinks:
     post: /p/:slug/
