@@ -7,7 +7,7 @@ slug: docker-swarm-traefik
 weight: -9
 math: 
 license: 
-hidden: false
+hidden: true
 comments: true
 readingTime: true
 categories: ["docker","yml","traefik"]

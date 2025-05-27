@@ -97,7 +97,7 @@ params:
 #            issueTerm: title
 #            label:
         giscus:
-            repo: penyt/li-penli-quest-comments
+            repo: penyt/MyWebsite-comments
             repoID: R_kgDOLnRQHw
             category: Announcements
             categoryID: DIC_kwDOLnRQH84CenE0

@@ -9,8 +9,8 @@ math:
 license: 
 hidden: true
 comments: true
-readingTime: false
-categories: [""]
-tags: [""]
+readingTime: true
+categories: ["",""]
+tags: ["",""]
 draft: false
 ---
